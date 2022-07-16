@@ -3,30 +3,32 @@
       <ActionBar class="action-bar">
         <NavigationButton visibility="hidden"/>
         <GridLayout columns="50, *">
-          <Label class="action-bar-title" text="Featured" colSpan="2"/>
+          <Label class="action-bar-title" text="Home1" colSpan="2"/>
 
           <Label class="fas" text.decode="&#xf0c9;" @tap="onDrawerButtonTap"/>
         </GridLayout>
       </ActionBar>
-
-        <GridLayout class="page__content">
-            <Label class="page__content-icon fas" text.decode="&#xf005;"/>
-            <Label class="page__content-placeholder" :text="message"/>
-        </GridLayout>
+        <MainBottomMenu></MainBottomMenu>
+       
     </Page>
 </template>
 
 <script>
   import * as utils from "~/shared/utils";
-  import { SelectedPageService } from "../shared/selected-page-service";
+  import { SelectedPageService } from "~/shared/selected-page-service";
+
+  import MainBottomMenu from "./MainBottomMenu.vue";
 
   export default {
+    components:{
+      MainBottomMenu,
+    },
     mounted() {
-      SelectedPageService.getInstance().updateSelectedPage("Featured");
+      SelectedPageService.getInstance().updateSelectedPage("Home");
     },
     computed: {
       message() {
-        return "<!-- Page content goes here -->";
+        return "<!-- Page content goes here wefwewfew-->";
       }
     },
     methods: {

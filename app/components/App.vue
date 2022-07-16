@@ -4,14 +4,14 @@
             <DrawerContent/>
         </StackLayout>
         <Frame ~mainContent ref="drawerMainContent">
-            <Home/>
+            <Main/>
         </Frame>
     </RadSideDrawer>
 </template>
 
 <script>
-  import DrawerContent from './DrawerContent'
-  import Home from './Home'
+  import DrawerContent from './layout/DrawerContent'
+  import Main from './layout/Main'
   import { SlideInOnTopTransition } from 'nativescript-ui-sidedrawer';
 
   export default {
@@ -23,7 +23,7 @@
 
     components: {
       DrawerContent,
-      Home
+      Main
     }
   }
 </script>

@@ -1,7 +1,7 @@
 <template>
 <ScrollView>
     <StackLayout>
-        <!-- <button @tap="showInfo">qwertyui</button> -->
+        <button @tap="showInfo">qwertyui</button>
         <MainHeadline :opening="first" v-if="section && section.posts && section.posts.length > 0"></MainHeadline>
         <!-- <SectionHeadline></SectionHeadline>
             <SectionHeadline></SectionHeadline> -->
@@ -21,8 +21,8 @@ import StandardHeadline from "../modules/headlines/StandardHeadline";
 import SectionHeadline from "../modules/headlines/SectionHeadline";
 
 const SECTION_QUERY = gql `
-query enterprises{
-  section(id: 5) {        
+query enterprises($id: Int!){
+  section(id: $id) {        
     id
     name
     partner {
@@ -58,8 +58,14 @@ export default {
         StandardHeadline,
         SectionHeadline
     },
+    props:['sect'],
     apollo: {
-        section: SECTION_QUERY
+      section:{
+        query: SECTION_QUERY,
+        variables() {
+           return {id: parseInt(this.sect)}
+        }
+      }     
     },
     computed: {
         first() {

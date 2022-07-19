@@ -6,7 +6,7 @@
   <SegmentedBarItem title="Indicadores" />
 </SegmentedBar>
 <GridLayout>
-  <Section v-if="selectedItem == 0"></Section>
+  <Section v-if="selectedItem == 0" sect="5"></Section>
   <NewInOffice v-if="selectedItem == 1"></NewInOffice>
   <IndicatorsPage v-if="selectedItem == 2"></IndicatorsPage>
 </GridLayout> 

@@ -24,6 +24,9 @@
                 <MDTabStripItem>
                     <Label text="ANÁLISIS"></Label>
                 </MDTabStripItem>
+                  <MDTabStripItem>
+                    <Label text="CAJA FUERTE"></Label>
+                </MDTabStripItem>
             </MDTabStrip>
             <MDTabContentItem>
                 <GridLayout>
@@ -55,6 +58,11 @@
                 <GridLayout>
                     <AnalysisTabMenu></AnalysisTabMenu>
                 </GridLayout>
+            </MDTabContentItem>            
+             <MDTabContentItem>
+                <GridLayout>
+                    <Section sect="12"></Section>
+                </GridLayout>
             </MDTabContentItem>
         </MDTabs>
     </StackLayout>
@@ -66,13 +74,15 @@
     import Agencies from "../pages/Agencies";
     import EnterpriseTabMenu from "./EnterpriseTabMenu";
     import AnalysisTabMenu from "./AnalysisTabMenu";
+    import Section from "../pages/Section";
     export default {
         components: {
             LastNews,
             Trends,
             Agencies,
             EnterpriseTabMenu,
-            AnalysisTabMenu
+            AnalysisTabMenu,
+            Section
         },
         data() {
             return {};

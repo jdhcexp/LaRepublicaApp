@@ -11,7 +11,8 @@
             <Editorial v-if="selectedItem == 0"></Editorial>
             <Analysis v-if="selectedItem == 1"></Analysis>
             <DayCharacter v-if="selectedItem == 2"></DayCharacter>
-            <Guests v-if="selectedItem == 3"></Guests>            
+            <Guests v-if="selectedItem == 3"></Guests>   
+            <Tribune v-if="selectedItem > 3" :target="selectTribune"></Tribune>       
         </GridLayout>
     </StackLayout>
 </template>
@@ -24,6 +25,7 @@ import Editorial from "../pages/Editorial";
 import Analysis from "../pages/Analysis";
 import DayCharacter from "../pages/DayCharacter.vue";
 import Guests from "../pages/Guests";
+import Tribune from "../pages/Tribune"
 
 const TRIBUNES_NAME_QUERY = gql`
     query DayChar {
@@ -41,7 +43,8 @@ export default {
         Editorial,
         Analysis,
         DayCharacter,
-        Guests
+        Guests,
+        Tribune
     },
     apollo: {
         analysis: TRIBUNES_NAME_QUERY
@@ -59,6 +62,9 @@ export default {
             else {
                 this.tribunes;
             }
+        },
+        selectTribune(){            
+            return this.analysis.tribunes[this.selectedItem-4].name;            
         }
     }
 };

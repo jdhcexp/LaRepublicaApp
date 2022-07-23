@@ -3,7 +3,9 @@
       <ActionBar class="action-bar">
         <NavigationButton visibility="hidden"/>
         <GridLayout columns="50, *">
-          <Label class="action-bar-title" text="Homexx" colSpan="2"/>
+          <!-- <Label class="action-bar-title" text="Homexx" colSpan="2"/> -->
+          <Image src="~/assets/logo.png" width="39"
+                verticalAlignment="center" />
 
           <Label class="fas" text.decode="&#xf0c9;" @tap="onDrawerButtonTap"/>
         </GridLayout>

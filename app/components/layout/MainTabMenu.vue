@@ -1,31 +1,31 @@
 <template>
 
     <StackLayout>
-        <MDTabs selectedIndex="0" height="100%">
-            <MDTabStrip>
+        <MDTabs selectedIndex="0" height="100%" iOSTabBarItemsAlignment="leading">
+            <MDTabStrip class="menu">
                 <MDTabStripItem>
-                    <Label text="ULTIMAS NOTICIAS"></Label>
+                    <Label text="ULTIMAS NOTICIAS" class="item"></Label>
 
                 </MDTabStripItem>
                 <MDTabStripItem>
-                    <Label text="MIS NOTICIAS"></Label>
+                    <Label text="MIS NOTICIAS" class="item"></Label>
 
                 </MDTabStripItem>
                 <MDTabStripItem>
-                    <Label text="TENDENCIAS"></Label>
+                    <Label text="TENDENCIAS" class="item"></Label>
 
                 </MDTabStripItem>
                 <MDTabStripItem>
-                    <Label text="CENTRAL DE AGENCIAS"></Label>
+                    <Label text="CENTRAL DE AGENCIAS" class="item"></Label>
                 </MDTabStripItem>
                 <MDTabStripItem>
-                    <Label text="EMPRESAS"></Label>
+                    <Label text="EMPRESAS" class="item"></Label>
                 </MDTabStripItem>
                 <MDTabStripItem>
-                    <Label text="ANÁLISIS"></Label>
+                    <Label text="ANÁLISIS" class="item"></Label>
                 </MDTabStripItem>
                   <MDTabStripItem>
-                    <Label text="CAJA FUERTE"></Label>
+                    <Label text="CAJA FUERTE" class="item"></Label>
                 </MDTabStripItem>
             </MDTabStrip>
             <MDTabContentItem>
@@ -90,5 +90,17 @@
     };
 </script>
 
-<style>
+<style scoped>
+.item {
+    text-align: center;
+    font: normal normal bold 12px/15px Montserrat;
+    color: #C51A1B;
+}
+
+TabStrip.menu {
+    un-selected-item-color: #808080;
+    highlight-color: #C51A1B;
+    selected-item-color: #C51A1B;
+}
+
 </style>

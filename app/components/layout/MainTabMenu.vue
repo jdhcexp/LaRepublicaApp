@@ -27,6 +27,15 @@
                   <MDTabStripItem>
                     <Label text="CAJA FUERTE" class="item"></Label>
                 </MDTabStripItem>
+                 <MDTabStripItem>
+                    <Label text="VIDEOS" class="item"></Label>
+                </MDTabStripItem>
+                 <MDTabStripItem>
+                    <Label text="ESPECIALES" class="item"></Label>
+                </MDTabStripItem>
+                 <MDTabStripItem>
+                    <Label text="COMUNIDAD EMPRESARIAL" class="item"></Label>
+                </MDTabStripItem>
             </MDTabStrip>
             <MDTabContentItem>
                 <GridLayout>
@@ -64,6 +73,21 @@
                     <Section sect="12"></Section>
                 </GridLayout>
             </MDTabContentItem>
+             <MDTabContentItem>
+                <GridLayout>
+                    <VideosTabMenu></VideosTabMenu>
+                </GridLayout>
+            </MDTabContentItem>
+             <MDTabContentItem>
+                <GridLayout>
+                    <Specials></Specials>
+                </GridLayout>
+            </MDTabContentItem>
+            <MDTabContentItem>
+                <GridLayout>
+                    <Partners></Partners>
+                </GridLayout>
+            </MDTabContentItem>
         </MDTabs>
     </StackLayout>
 </template>
@@ -75,15 +99,22 @@
     import EnterpriseTabMenu from "./EnterpriseTabMenu";
     import AnalysisTabMenu from "./AnalysisTabMenu";
     import Section from "../pages/Section";
+    import VideosTabMenu from "./VideosTabMenu";
+import Specials from "../pages/Specials.vue";
+import Partners from "../pages/Partners.vue";
+    
     export default {
         components: {
-            LastNews,
-            Trends,
-            Agencies,
-            EnterpriseTabMenu,
-            AnalysisTabMenu,
-            Section
-        },
+    LastNews,
+    Trends,
+    Agencies,
+    EnterpriseTabMenu,
+    AnalysisTabMenu,
+    Section,
+    VideosTabMenu,
+    Specials,
+    Partners
+},
         data() {
             return {};
         }

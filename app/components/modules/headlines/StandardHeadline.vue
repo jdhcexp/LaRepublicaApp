@@ -1,5 +1,5 @@
 <template>
-<StackLayout orientation="horizontal" class="content-news">
+<StackLayout orientation="horizontal" class="content-news" @tap="onNavigationItemTap(headLine.id)">
     <Image :src="headLine.principalImage.url" class="thumbnail"/>
     <StackLayout>
         <Label :text="headLine.header" class="category category-thumb" />
@@ -9,7 +9,14 @@
 </template>
 
 <script>
+import StandardPost from '../posts/StandardPost';
+
+
+
 export default {
+    components:{
+        StandardPost
+    },
     props: {
         headLine: {
             type: Object
@@ -17,7 +24,23 @@ export default {
     },
     data() {
         return {};
-    }
+    },
+    methods: {
+         onNavigationItemTap(id) {
+            this.$navigateTo(StandardPost, {
+                transition: {
+                    name: "slideLeft",
+                    duration: 100,
+                    curve: "easeIn"
+                },
+                props:{
+                    postId: id
+                }
+            }
+            );
+            // utils.closeDrawer();
+        }
+    },
 };
 </script>
 

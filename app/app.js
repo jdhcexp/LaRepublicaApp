@@ -20,8 +20,16 @@ const defaultClient = new ApolloClient({
     uri: 'https://gql.lalr.co/gql'
   })
 
+const marketClient = new ApolloClient({
+  uri: 'https://gql.lalr.co/gqlq'
+})
+
 const apolloProvider = new VueApollo({
+  clients:{
   defaultClient,
+  marketClient
+  },
+  defaultClient:defaultClient
 })
 
 new Vue({

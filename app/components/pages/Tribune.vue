@@ -3,7 +3,7 @@
     <button @tap="showInfo">qwertyui</button>
     <WrapLayout backgroundColor="#fff" v-if="hlChecker">
     
-        <Label text="Jueves" class="analysis-day" />
+        <Label text="Viernes" class="analysis-day" />
         <TribuneHeadline v-for="item in headlines" :key="item.id" :headLine="item"></TribuneHeadline>
     </WrapLayout>
 </ScrollView>

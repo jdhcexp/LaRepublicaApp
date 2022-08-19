@@ -10,7 +10,7 @@
             <StackLayout>
                 <GridLayout columns="auto, *"
                             :class="'nt-drawer__list-item' + (selectedPage === 'Main' ? ' -selected': '')"
-                            @tap="onNavigationItemTap(Home)">
+                            @tap="onNavigationItemTap(Main)">
                     <Label col="0" text.decode="&#xf015;" class="nt-icon fas"/>
                     <Label col="1" text="Home" class="p-r-10"/>
                 </GridLayout>   

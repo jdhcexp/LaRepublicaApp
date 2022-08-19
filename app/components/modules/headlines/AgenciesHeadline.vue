@@ -56,4 +56,4 @@ export default {
     font-family: 'Bitter', serif;
     padding-right: 17px;
 }
-</style>>
+</style>

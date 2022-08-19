@@ -1,39 +1,36 @@
 <template>
 
     <StackLayout>
-        <MDTabs selectedIndex="0" height="100%" iOSTabBarItemsAlignment="leading">
-            <MDTabStrip class="menu">
-                <MDTabStripItem>
-                    <Label text="ULTIMAS NOTICIAS" class="item"></Label>
-
+        <MDTabs selectedIndex="0" height="100%">
+            <MDTabStrip>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
+                    <Label text="ÚLTIMAS NOTICIAS" class="item"></Label>
                 </MDTabStripItem>
-                <MDTabStripItem>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="MIS NOTICIAS" class="item"></Label>
-
                 </MDTabStripItem>
-                <MDTabStripItem>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="TENDENCIAS" class="item"></Label>
-
                 </MDTabStripItem>
-                <MDTabStripItem>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="CENTRAL DE AGENCIAS" class="item"></Label>
                 </MDTabStripItem>
-                <MDTabStripItem>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="EMPRESAS" class="item"></Label>
                 </MDTabStripItem>
-                <MDTabStripItem>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="ANÁLISIS" class="item"></Label>
                 </MDTabStripItem>
-                  <MDTabStripItem>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="CAJA FUERTE" class="item"></Label>
                 </MDTabStripItem>
-                 <MDTabStripItem>
+                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="VIDEOS" class="item"></Label>
                 </MDTabStripItem>
-                 <MDTabStripItem>
+                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="ESPECIALES" class="item"></Label>
                 </MDTabStripItem>
-                 <MDTabStripItem>
+                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="COMUNIDAD EMPRESARIAL" class="item"></Label>
                 </MDTabStripItem>
             </MDTabStrip>

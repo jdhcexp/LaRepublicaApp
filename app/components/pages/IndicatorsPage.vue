@@ -1,13 +1,13 @@
 <template>
 <ScrollView>
-    <WrapLayout backgroundColor="#fff">
-        <StackLayout orientation="horizontal" class="company-indicators">
-            <Label text="UVR" class="indicator" textWrap="true" />
-            <Label text="$ 287,85" class="value" />
-            <Label text="2,44 %" class="porcent" />
-            <Label text="-" class="icon-indicator" />
+    <WrapLayout backgroundColor="#fff" v-if="bannerExist">
+        <StackLayout orientation="horizontal" class="company-indicators" v-for="(item, index) in quotes" :key="index">
+            <Label :text="item.name" class="indicator" textWrap="true" />
+            <Label :text="item.quoteValue.value" class="value" />
+            <Label :text="item.quoteValue.percentageVariation" class="porcent" :class="getIndicatorClass(item.quoteValue.variationType)"/>
+            <Label :text="getIndicatorSign(item.quoteValue.variationType)" class="icon-indicator" :class="getIndicatorClass(item.quoteValue.variationType)" />
         </StackLayout>
-        <StackLayout orientation="horizontal" class="company-indicators">
+        <!-- <StackLayout orientation="horizontal" class="company-indicators">
             <Label text="TASA USURA CRÉDITO DE CONSUMO" class="indicator" textWrap="true" />
             <Label text="$3.302,41" class="value" />
             <Label text="-2,44 %" class="porcent negative-indicator" />
@@ -18,15 +18,61 @@
             <Label text="$ 287,85" class="value" />
             <Label text="2,44 %" class="porcent positive-indicator" />
             <Label text="<" class="icon-indicator positive-indicator" />
-        </StackLayout>
+        </StackLayout> -->
     </WrapLayout>
 </ScrollView>
 </template>
 
 <script>
-export default {
+import gql from 'graphql-tag';
 
+const ENTERPRISE_INDICATORS_QUERY = gql`
+query quotes{
+  quotes{
+    name
+    quoteValue {
+      value
+      percentageVariation
+      variationType
+    }
+  }
 }
+`
+
+export default {
+apollo:{
+    $client:'marketClient',
+    quotes:ENTERPRISE_INDICATORS_QUERY
+},
+computed: {
+  bannerExist(){
+    return this.quotes && this.quotes.length > 0;
+  }  
+},
+methods: {
+    getIndicatorClass(type){
+        switch(type){
+            case "UP":
+                return 'positive-indicator';
+            case "DOWN":
+                return 'negative-indicator';
+            default:
+                return "";
+        }
+    },
+    getIndicatorSign(type){
+        switch(type){
+            case "UP":
+                return '<';
+            case "DOWN":
+                return '>';
+            default:
+                return "";
+        }
+    }
+},
+}
+
 </script>
 
 <style scoped>

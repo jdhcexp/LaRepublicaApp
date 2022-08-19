@@ -5,7 +5,7 @@
       "~/*": ["app/*"],
       "@/*": ["app/*"]
     },
-    "jsx": "preserve"
+    "jsx":"preserve"
   },
   "include": ["app/**/*"]
 }

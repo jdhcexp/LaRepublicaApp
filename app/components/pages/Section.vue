@@ -1,7 +1,7 @@
 <template>
 <ScrollView>
     <StackLayout>
-        <button @tap="showInfo">qwertyui</button>
+        <!-- <button @tap="showInfo">qwertyui</button> -->
         <MainHeadline :opening="first" v-if="section && section.posts && section.posts.length > 0"></MainHeadline>
         <!-- <SectionHeadline></SectionHeadline>
             <SectionHeadline></SectionHeadline> -->

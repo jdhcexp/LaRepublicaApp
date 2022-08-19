@@ -3,7 +3,7 @@
     <!-- <button @tap="showInfo">qwertyui</button> -->
     <WrapLayout backgroundColor="#fff" v-if="analysis && analysis.guests && analysis.guests.length > 0">
     
-        <Label text="Jueves" class="analysis-day" />
+        <Label text="Viernes" class="analysis-day" />
         <guests-headline v-for="item in analysis.guests" :key="item.id" :headLine="item"></guests-headline>
     </WrapLayout>
 </ScrollView>

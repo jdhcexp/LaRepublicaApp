@@ -1,18 +1,15 @@
 <template>
-    <WrapLayout backgroundColor="#fff">        
+    <WrapLayout backgroundColor="#fff">
         <Label :text="opening.header" class="category" />
         <AbsoluteLayout backgroundColor="#fff">
-            <Image
-                :src="opening.principalImage.url"
-                top="55" class="img-ppal" />
+            <Image :src="opening.principalImage.url" top="55" class="img-ppal" @tap="onNavigationItemTap(opening.id)" />
             <StackLayout class="titular-box">
-                <label
-                    :text="opening.title"
-                    class="titular-ppal" textWrap="true" />
+                <label :text="opening.title" class="titular-ppal" textWrap="true" />
+                <!-- <label :text="opening.id" class="titular-ppal" textWrap="true" /> -->
             </StackLayout>
         </AbsoluteLayout>
     </WrapLayout>
-     <!-- <WrapLayout backgroundColor="#fff">
+    <!-- <WrapLayout backgroundColor="#fff">
         <button @tap="showInfo">asdcfvf</button>
         <Label :text="opening.header" class="category" />
         <AbsoluteLayout backgroundColor="#fff">
@@ -29,22 +26,42 @@
 </template>
 
 <script>
-    export default {
-        props:{
-            opening:{
-                type:Object
+import StandardPost from '../posts/StandardPost';
+
+export default {
+    components: {
+        StandardPost
+    },
+    props: {
+        opening: {
+            type: Object
+        }
+    },
+    data() {
+        return {};
+    },
+    methods: {
+        showInfo() {
+            debugger;
+            console.log(this.opening);
+        },
+        onNavigationItemTap(id) {
+            this.$navigateTo(StandardPost, {
+                transition: {
+                    name: "slideLeft",
+                    duration: 100,
+                    curve: "easeIn"
+                },
+                props:{
+                    postId: id
+                }
             }
-        },
-        data() {
-            return {};
-        },
-        methods: {
-            showInfo(){
-                debugger;
-                console.log(this.opening);
-            }
-        },
-    };
+            );
+            // utils.closeDrawer();
+        }
+
+    },
+};
 </script>
 
 <style scoped>
@@ -57,17 +74,20 @@
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
 }
+
 .titular-box {
     margin-left: 9%;
     width: 82%;
     background-color: #fff;
 }
+
 .titular-ppal {
     text-align: center;
     font-size: 22px;
     color: #000;
     font-family: 'Bitter', serif;
 }
+
 .img-ppal {
     width: 100%;
 }

@@ -49,11 +49,11 @@
   color: #C51A1B;
 }
 
-MDTabStrip.menu {
+/*MDTabStrip.menu {
   un-selected-item-color: #808080;
   highlight-color: #C51A1B;
   selected-item-color: #C51A1B;
-}
+}*/
 
 /*** Footer ***/
 .item-footer {
@@ -358,4 +358,12 @@ MDTabStrip.menu {
   font: normal normal normal 16px/24px Montserrat;
   color: #808080;
   margin-top: 50px;
+}
+
+
+.icon-menu {
+	margin-right: 270px;
+}
+.icon-search-top {
+	margin-left: 270px;
 }

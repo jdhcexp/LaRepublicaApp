@@ -1,6 +1,6 @@
 <template>
-<ScrollView>
-   <WrapLayout backgroundColor="#fff" v-if="analysis && analysis.dayCharacter &&  analysis.dayCharacter.length > 0">        
+    <ScrollView>
+    <!--<WrapLayout backgroundColor="#fff" v-if="analysis && analysis.dayCharacter &&  analysis.dayCharacter.length > 0">        
         <Label :text="analysis.dayCharacter[0].name" class="category" />
         <Label :text="analysis.dayCharacter[0].position" class="category" />
         <AbsoluteLayout backgroundColor="#fff">
@@ -9,12 +9,31 @@
                 top="55" class="img-ppal" />
             <StackLayout class="titular-box">
                 <HtmlView :html="analysis.dayCharacter[0].content" />
-                <!-- <label
+                 <label
                     :text="opening.title"
-                    class="titular-ppal" textWrap="true" /> -->
+                    class="titular-ppal" textWrap="true" /> 
             </StackLayout>
         </AbsoluteLayout>
-    </WrapLayout>
+    </WrapLayout>-->
+
+        <WrapLayout>
+            <AbsoluteLayout backgroundColor="#fff" class="personaje-content">
+                <label text="" class="gray-box" textWrap="true" />
+                <Image
+                    src="https://www.elcolombiano.com/documents/10157/0/375x562/0c0/0d0/none/11101/JNHN/image_content_35531615_20200409191544.jpg"
+                    class="img-personaje" />
+            </AbsoluteLayout>
+            <StackLayout class="analysis-personaje">
+                <Label text="Andrés Felipe Gómez" textWrap="true"
+                    class="personaje-name" />
+                <Label text="Presidente del Grupo Familia"
+                    class="personaje-job" />
+                <Label
+                    text="La Asamblea General de Accionistas de Productos Familia S.A., del grupo económico liderado por Andrés Felipe Gómez, aprobó la cancelación de la inscripción de las acciones en el Registro Nacional de Valores y la Bolsa de Valores de Colombia (BVC)."
+                    class="personaje-description" textWrap="true" />
+            </StackLayout>
+        </WrapLayout>
+
     </ScrollView>
 </template>
 

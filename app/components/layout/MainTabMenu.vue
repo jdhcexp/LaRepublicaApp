@@ -3,29 +3,26 @@
     <StackLayout>
         <MDTabs selectedIndex="0" height="100%">
             <MDTabStrip>
-                <MDTabStripItem>
-                    <Label text="ULTIMAS NOTICIAS"></Label>
-
+                <MDTabStripItem backgroundColor="#fff" class="menu">
+                    <Label text="ÚLTIMAS NOTICIAS" class="item"></Label>
                 </MDTabStripItem>
-                <MDTabStripItem>
-                    <Label text="MIS NOTICIAS"></Label>
-
+                <MDTabStripItem backgroundColor="#fff" class="menu">
+                    <Label text="MIS NOTICIAS" class="item"></Label>
                 </MDTabStripItem>
-                <MDTabStripItem>
-                    <Label text="TENDENCIAS"></Label>
-
+                <MDTabStripItem backgroundColor="#fff" class="menu">
+                    <Label text="TENDENCIAS" class="item"></Label>
                 </MDTabStripItem>
-                <MDTabStripItem>
-                    <Label text="CENTRAL DE AGENCIAS"></Label>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
+                    <Label text="CENTRAL DE AGENCIAS" class="item"></Label>
                 </MDTabStripItem>
-                <MDTabStripItem>
-                    <Label text="EMPRESAS"></Label>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
+                    <Label text="EMPRESAS" class="item"></Label>
                 </MDTabStripItem>
-                <MDTabStripItem>
-                    <Label text="ANÁLISIS"></Label>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
+                    <Label text="ANÁLISIS" class="item"></Label>
                 </MDTabStripItem>
-                  <MDTabStripItem>
-                    <Label text="CAJA FUERTE"></Label>
+                <MDTabStripItem backgroundColor="#fff" class="menu">
+                    <Label text="CAJA FUERTE" class="item"></Label>
                 </MDTabStripItem>
             </MDTabStrip>
             <MDTabContentItem>

@@ -1,25 +1,24 @@
 <template>
     <StackLayout>
         <MDBottomNavigation selectedIndex="0">
-            <MDTabStrip>
+            <MDTabStrip backgroundColor="#fff" class="menu">
                 <MDTabStripItem>
-                    <Label text="Noticias"></Label>
+                    <Label text="Noticias" class="item-footer" />
                     <Image src="res://home"></Image>
                 </MDTabStripItem>
                 <MDTabStripItem>
-                    <Label text="Indicadores"></Label>
+                    <Label text="Indicadores" class="item-footer" />
+                    <Image src="res://search"></Image>
+                </MDTabStripItem>
+                <MDTabStripItem>
+                    <Image src="~/assets/logo.png"></Image>
+                </MDTabStripItem>
+                <MDTabStripItem>
+                    <Label text="Configuración" class="item-footer" />
                     <Image src="res://settings"></Image>
                 </MDTabStripItem>
                 <MDTabStripItem>
-                    <Label text="LRMAS"></Label>
-                    <Image src="res://search"></Image>
-                </MDTabStripItem>
-                <MDTabStripItem>
-                    <Label text="Configuración"></Label>
-                    <Image src="res://search"></Image>
-                </MDTabStripItem>
-                <MDTabStripItem>
-                    <Label text="test post"></Label>
+                    <Label text="test post" lass="item-footer" />
                     <Image src="res://search"></Image>
                 </MDTabStripItem>
               

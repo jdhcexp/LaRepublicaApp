@@ -1,7 +1,7 @@
 <template>
     <StackLayout>
         <SegmentedBar v-model="selectedItem">
-            <SegmentedBarItem title="Editorial" />
+            <SegmentedBarItem title="Editorial" textWrap="true" />
             <SegmentedBarItem title="Análisis" />
             <SegmentedBarItem title="Personaje del dia" />
             <SegmentedBarItem title="Invitados" />

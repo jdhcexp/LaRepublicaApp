@@ -87,5 +87,17 @@
     };
 </script>
 
-<style>
+<style scoped>
+.item {
+    text-align: center;
+    font: normal normal bold 12px/15px Montserrat;
+    color: #C51A1B;
+}
+
+TabStrip.menu {
+    un-selected-item-color: #808080;
+    highlight-color: #C51A1B;
+    selected-item-color: #C51A1B;
+}
+
 </style>

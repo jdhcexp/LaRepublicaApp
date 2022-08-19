@@ -1,10 +1,12 @@
 <template>
 <StackLayout>
-<SegmentedBar v-model="selectedItem">
-  <SegmentedBarItem title="Noticias" />
-  <SegmentedBarItem title="Nuevo en la oficina" />
-  <SegmentedBarItem title="Indicadores" />
-</SegmentedBar>
+  <label text="Noticias"></label>
+  <label text="Nuevo en la oficina"></label>
+  <label text="Indicadores"></label>
+
+  <!-- <button>Noticias</button>
+  <button>Nuevo en la oficina</button>
+  <button>Indicadores</button> -->
 <GridLayout>
   <Section v-if="selectedItem == 0" sect="5"></Section>
   <NewInOffice v-if="selectedItem == 1"></NewInOffice>

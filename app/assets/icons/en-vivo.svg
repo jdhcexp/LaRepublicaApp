@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="44" height="32.896" viewBox="0 0 44 32.896">
+  <g id="Grupo_516" data-name="Grupo 516" transform="translate(20502 12005.182)">
+    <g id="Grupo_515" data-name="Grupo 515" transform="translate(-20842.027 -12032.285)">
+      <g id="Grupo_129" data-name="Grupo 129" transform="translate(351.028 27.104)">
+        <path id="Trazado_126" data-name="Trazado 126" d="M43.479,194.848a2.314,2.314,0,1,1,0-3.269A2.319,2.319,0,0,1,43.479,194.848Z" transform="translate(-30.424 -184.837)" fill="#c51a1b"/>
+        <path id="Trazado_127" data-name="Trazado 127" d="M49.374,197.068a1.1,1.1,0,0,1-.778-1.88,4.6,4.6,0,0,0,0-6.513,1.1,1.1,0,0,1,1.555-1.558,6.8,6.8,0,0,1,0,9.63A1.1,1.1,0,0,1,49.374,197.068Z" transform="translate(-33.156 -183.554)" fill="#c51a1b"/>
+        <path id="Trazado_128" data-name="Trazado 128" d="M52.994,198.837a1.1,1.1,0,0,1-.778-1.88,9.174,9.174,0,0,0,0-12.995,1.1,1.1,0,1,1,1.555-1.558,11.378,11.378,0,0,1,0,16.111A1.1,1.1,0,0,1,52.994,198.837Z" transform="translate(-34.286 -182.082)" fill="#c51a1b"/>
+        <path id="Trazado_129" data-name="Trazado 129" d="M34.643,197.068a1.1,1.1,0,0,1-.778-.322,6.8,6.8,0,0,1,0-9.63,1.1,1.1,0,0,1,1.556,1.558,4.6,4.6,0,0,0,0,6.513,1.1,1.1,0,0,1-.778,1.88Z" transform="translate(-28.032 -183.554)" fill="#c51a1b"/>
+        <path id="Trazado_130" data-name="Trazado 130" d="M30.412,198.837a1.1,1.1,0,0,1-.778-.322,11.378,11.378,0,0,1,0-16.111,1.1,1.1,0,1,1,1.555,1.558,9.176,9.176,0,0,0,0,12.995,1.1,1.1,0,0,1-.777,1.88Z" transform="translate(-26.291 -182.082)" fill="#c51a1b"/>
+      </g>
+      <text id="EN_VIVO" data-name="EN VIVO" transform="translate(362.027 57)" fill="#c51a1b" font-size="10" font-family="Montserrat-Bold, Montserrat" font-weight="700"><tspan x="-21.92" y="0">EN VIVO</tspan></text>
+    </g>
+  </g>
+</svg>

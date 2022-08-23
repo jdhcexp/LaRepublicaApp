@@ -46,13 +46,13 @@ export default {
 
 <style scoped>
 .content-news {
-    margin-top: 25px;
-    margin-left: 17px;
+    margin-top: 22px;
+    margin-left: 15px;
 }
 
 .thumbnail {
     width: 26%;
-    margin-right: 17px;
+    margin-right: 15px;
     vertical-align: top;
 }
 
@@ -62,10 +62,10 @@ export default {
 }
 
 .text-thumb {
-    margin-top: 6px;
-    font-size: 16px;
+    margin-top: 5px;
+    font-size: 14px;
     color: #000;
     font-family: 'Bitter', serif;
-    padding-right: 17px;
+    padding-right: 15px;
 }
 </style>

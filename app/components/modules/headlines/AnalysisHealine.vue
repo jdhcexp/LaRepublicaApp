@@ -28,27 +28,27 @@ props: {
     margin-right: 2%;
     border-color: #C2C2C2;
     border-width: 0 0 1 0;
-    margin-top: 24px;
+    margin-top: 21px;
     clear: both;
     width: 96%;
 }
 .thumbnail-analyst {
-    margin-right: 16px;
+    margin-right: 18px;
     width: 27%;
     vertical-align: top;
 }
 .analysis-title {
-    font: normal normal normal 22px/28px Bitter;
+    font: normal normal normal 19px/25px Bitter;
     color: #000000;
-    margin-top: 25px;
+    margin-top: 22px;
 }
 .analysis-name {
-    font: normal normal bold 12px/28px Montserrat;
+    font: normal normal bold 10px/25px Montserrat;
     color: #000000;
-    margin-top: 14px;
+    margin-top: 12px;
 }
 .analysis-job {
-    font: normal normal normal 12px/16px Montserrat;
+    font: normal normal normal 10px/14px Montserrat;
     color: #000000;
 }
 </style>

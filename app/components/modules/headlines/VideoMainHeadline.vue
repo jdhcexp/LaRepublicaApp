@@ -50,8 +50,8 @@ export default {
 .category {
     width: 100%;
     text-align: center;
-    margin-top: 20px;
-    font-size: 12px;
+    margin-top: 17px;
+    font-size: 10px;
     color: #808080;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
@@ -65,7 +65,7 @@ export default {
 
 .titular-ppal {
     text-align: center;
-    font-size: 22px;
+    font-size: 19px;
     color: #000;
     font-family: 'Bitter', serif;
 }

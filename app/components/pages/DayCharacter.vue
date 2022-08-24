@@ -52,16 +52,16 @@ export default {
 
 <style scoped>
 .personaje-content {
-    margin-top: 42px;
+    margin-top: 37px;
 }
 .analysis-personaje {
-    padding: 36px 32px 36px 32px;
+    padding: 32px 28px 32px 28px;
 }
 .gray-box {
     width: 56%;
     margin-left: 22%;
-    margin-top: 236px;
-    height: 328px;
+    margin-top: 212px;
+    height: 295px;
     border-color: #C2C2C2;
     border-width: 1 1 1 1;
 }
@@ -71,18 +71,18 @@ export default {
 }
 .personaje-name {
     text-align: center;
-    font: normal normal normal 24px/26px Bitter;
+    font: normal normal normal 21px/23px Bitter;
     color: #000000;
 }
 .personaje-job {
     text-align: center;
-    font: normal normal normal 14px/28px Montserrat;
+    font: normal normal normal 12px/25px Montserrat;
     color: #808080;
-    margin-top: 18px;
+    margin-top: 16px;
 }
 .personaje-description {
-    font: normal normal normal 16px/24px Montserrat;
+    font: normal normal normal 14px/21px Montserrat;
     color: #808080;
-    margin-top: 50px;
+    margin-top: 44px;
 }
 </style>

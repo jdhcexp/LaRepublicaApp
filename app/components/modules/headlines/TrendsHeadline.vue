@@ -30,24 +30,24 @@
 
 <style scoped>
 .content-trends {
-    margin-left: 17px;
-    margin-right: 17px;
-    margin-bottom: 6px;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 5px;
     border-color: #C2C2C2;
     border-width: 0 0 1 0;
 }
 .trendNumber {
     color: #000;
-    font: normal normal bold 40px/49px Montserrat;
-    width: 132px;
+    font: normal normal bold 35px/44px Montserrat;
+    width: 118px;
     margin-top: 0px;
     vertical-align: top;
 }
 .category-trend {
     text-align: left;
-    margin-top: 23px;
+    margin-top: 21px;
 }
 .trend {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 </style>>

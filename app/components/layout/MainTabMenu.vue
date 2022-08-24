@@ -119,16 +119,14 @@ import Partners from "../pages/Partners.vue";
 </script>
 
 <style scoped>
+.menu {
+    un-selected-item-color: #808080;
+    highlight-color: #C51A1B;
+    selected-item-color: #C51A1B;
+}
 .item {
     text-align: center;
     font: normal normal bold 10px/13px Montserrat;
     color: #C51A1B;
 }
-
-TabStrip.menu {
-    un-selected-item-color: #808080;
-    highlight-color: #C51A1B;
-    selected-item-color: #C51A1B;
-}
-
 </style>

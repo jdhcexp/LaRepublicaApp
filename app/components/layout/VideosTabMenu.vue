@@ -1,6 +1,6 @@
 <template>
     <StackLayout>
-        <ScrollView orientation="horizontal" height="76" class="gral">
+        <ScrollView orientation="horizontal" height="68" class="gral">
             <GridLayout :columns="genCols" v-if="videosExist">
                 <label column="0" text="Todos" class="menu" :class="{ active: selectedItem == 0 }" textWrap="true"
                     @tap="selectedItem = 0"></label>
@@ -101,23 +101,23 @@ export default {
 
 <style scoped>
 .gral {
-    margin: 0 6px;
+    margin: 0 5px;
 }
 
 .menu {
     border-color: #C2C2C2;
     border-width: 1 1 1 1;
-    height: 76px;
-    padding: 11px 21px;
+    height: 68px;
+    padding: 9px 18px;
     text-align: center;
-    font-size: 13px;
-    line-height: 16px;
+    font-size: 11px;
+    line-height: 14px;
     font-family: Montserrat;
     font-weight: 500;
     color: #808080;
-    border-radius: 36px;
-    margin-left: 6px;
-    margin-right: 6px;
+    border-radius: 32px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .active {

@@ -30,36 +30,36 @@ props: {
 
 <style scoped>
 .content-new-office {
-    margin-left: 17px;
-    margin-right: 17px;
+    margin-left: 15px;
+    margin-right: 15px;
     border-color: #C2C2C2;
     border-width: 0 0 1 0;
-    margin-top: 46px;
-    padding-bottom: 23px;
+    margin-top: 41px;
+    padding-bottom: 20px;
     clear: both;
 }
 .name-new {
-    margin-top: 15px;
-    font: normal normal normal 22px/26px Bitter;
+    margin-top: 13px;
+    font: normal normal normal 19px/23px Bitter;
     letter-spacing: 0px;
     color: #000000;
 }
 .company-job {
-    font: normal normal bold 14px/28px Montserrat;
+    font: normal normal bold 12px/25px Montserrat;
     color: #808080;
 }
 .job {
-    font: normal normal normal 14px/28px Montserrat;
+    font: normal normal normal 12px/25px Montserrat;
     color: #808080;
 }
 .company-date {
-    font: normal normal normal 12px/28px Montserrat;
+    font: normal normal normal 10px/25px Montserrat;
     color: #808080;
-    margin-top: 15px;
+    margin-top: 13px;
 }
 .thumbnail-new {
     width: 28%;
-    margin-right: 18px;
+    margin-right: 16px;
     vertical-align: top;
     border-radius: 180px;
 }

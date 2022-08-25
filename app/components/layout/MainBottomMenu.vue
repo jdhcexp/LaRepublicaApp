@@ -1,4 +1,8 @@
 <template>
+   
+ 
+   
+
     <StackLayout>
         <MDBottomNavigation selectedIndex="0">
             <MDTabStrip backgroundColor="#fff" class="menu">
@@ -25,6 +29,7 @@
             </MDTabStrip>
             <MDTabContentItem>               
                     <MainTabMenu></MainTabMenu>
+                    
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout>

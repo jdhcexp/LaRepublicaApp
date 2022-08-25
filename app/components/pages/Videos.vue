@@ -39,6 +39,7 @@ export default {
     apollo: {
         videos: {
             query: VIDEOS_QUERY,
+            
             variables() {
                 return { showId: parseInt(this.showId) };
             }

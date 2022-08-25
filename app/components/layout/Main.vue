@@ -19,6 +19,8 @@
 				</StackLayout>
 			</ActionItem>
 		</ActionBar>
+		
+
 		<MainBottomMenu></MainBottomMenu>	   
 	</Page>
 </template>

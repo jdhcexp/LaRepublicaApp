@@ -9,6 +9,34 @@
         </WrapLayout>
     </WrapLayout>
 </ScrollView>
+
+        <!-- <StackLayout>
+            
+            <label text="$269,89"></label>
+            <label text="-1.57 <"></label>
+        </StackLayout>
+         <StackLayout>
+            <label text="TRM"></label>
+            <label text="$2.369,89"></label>
+            <label text="2.57 >"></label>
+        </StackLayout>
+         <StackLayout>
+            <label text="PETROLEO WTI"></label>
+            <label text="$69,89"></label>
+            <label text="1.57 >"></label>
+        </StackLayout>
+         <StackLayout>
+            <label text="TRM"></label>
+            <label text="$2.369,89"></label>
+            <label text="2.57 >"></label>
+        </StackLayout>
+         <StackLayout>
+            <label text="PETROLEO WTI"></label>
+            <label text="$69,89"></label>
+            <label text="1.57 >"></label>
+        </StackLayout> -->
+
+  
 </template>
 
 <script>

@@ -1,10 +1,9 @@
 <template>
-  <ScrollView>
-   <WrapLayout v-if="post"> 
-    <HtmlView :html="post.content" />
-   </WrapLayout>
-   </ScrollView>
-
+  <GridLayout rows="*,auto" columns="*,*">
+    <WebView src="https://www.nativescript.org" colSpan="2" />
+    <Button row="1" col="0" text="Button 1" class="btn btn-primary" />
+    <Button row="1" col="1" text="Button 2" class="btn btn-primary" />
+</GridLayout>
 </template>
 
 <script>

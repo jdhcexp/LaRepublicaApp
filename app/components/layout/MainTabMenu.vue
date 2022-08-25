@@ -24,34 +24,33 @@
                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="CAJA FUERTE" class="item"></Label>
                 </MDTabStripItem>
-                 <MDTabStripItem backgroundColor="#fff" class="menu">
+                <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="VIDEOS" class="item"></Label>
                 </MDTabStripItem>
-                 <MDTabStripItem backgroundColor="#fff" class="menu">
+                <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="ESPECIALES" class="item"></Label>
                 </MDTabStripItem>
-                 <MDTabStripItem backgroundColor="#fff" class="menu">
+                <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="COMUNIDAD EMPRESARIAL" class="item"></Label>
                 </MDTabStripItem>
             </MDTabStrip>
             <MDTabContentItem>
                 <GridLayout>
-                    <LastNews></LastNews>                 
+                    <LastNews></LastNews>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout>
-                    <Label text="Settings Page" class="h2 text-center">
-                    </Label>
+                   <MyNewsLogin></MyNewsLogin>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>                     
+                <GridLayout>
                     <Trends></Trends>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>                     
+                <GridLayout>
                     <Agencies></Agencies>
                 </GridLayout>
             </MDTabContentItem>
@@ -64,18 +63,18 @@
                 <GridLayout>
                     <AnalysisTabMenu></AnalysisTabMenu>
                 </GridLayout>
-            </MDTabContentItem>            
-             <MDTabContentItem>
+            </MDTabContentItem>
+            <MDTabContentItem>
                 <GridLayout>
                     <Section sect="12"></Section>
                 </GridLayout>
             </MDTabContentItem>
-             <MDTabContentItem>
+            <MDTabContentItem>
                 <GridLayout>
                     <VideosTabMenu></VideosTabMenu>
                 </GridLayout>
             </MDTabContentItem>
-             <MDTabContentItem>
+            <MDTabContentItem>
                 <GridLayout>
                     <Specials></Specials>
                 </GridLayout>
@@ -87,21 +86,27 @@
             </MDTabContentItem>
         </MDTabs>
     </StackLayout>
+     
+   <!-- <GridLayout>
+
+   </GridLayout> -->
+   
 </template>
 
 <script>
-    import LastNews from "../pages/LastNews.vue";
-    import Trends from "../pages/Trends";
-    import Agencies from "../pages/Agencies";
-    import EnterpriseTabMenu from "./EnterpriseTabMenu";
-    import AnalysisTabMenu from "./AnalysisTabMenu";
-    import Section from "../pages/Section";
-    import VideosTabMenu from "./VideosTabMenu";
+import LastNews from "../pages/LastNews.vue";
+import Trends from "../pages/Trends";
+import Agencies from "../pages/Agencies";
+import EnterpriseTabMenu from "./EnterpriseTabMenu";
+import AnalysisTabMenu from "./AnalysisTabMenu";
+import Section from "../pages/Section";
+import VideosTabMenu from "./VideosTabMenu";
 import Specials from "../pages/Specials.vue";
 import Partners from "../pages/Partners.vue";
-    
-    export default {
-        components: {
+import MyNewsLogin from "../pages/MyNewsLogin";
+
+export default {
+    components: {
     LastNews,
     Trends,
     Agencies,
@@ -110,12 +115,13 @@ import Partners from "../pages/Partners.vue";
     Section,
     VideosTabMenu,
     Specials,
-    Partners
+    Partners,
+    MyNewsLogin
 },
-        data() {
-            return {};
-        }
-    };
+    data() {
+        return {};
+    }
+};
 </script>
 
 <style scoped>
@@ -130,5 +136,4 @@ TabStrip.menu {
     highlight-color: #C51A1B;
     selected-item-color: #C51A1B;
 }
-
 </style>

@@ -1,8 +1,6 @@
 <template>
   <ScrollView>
-   <WrapLayout v-if="post"> 
-    <HtmlView :html="post.content" />
-   </WrapLayout>
+   <button @tap="showInfo()">wertyuio</button>
    </ScrollView>
 
 </template>
@@ -11,40 +9,30 @@
 import gql from 'graphql-tag';
 
 const POST_QUERY = gql `
-query Post{
-  post(id: 3389481) {
-    section {
-      id
-      name
-    }
-    header
-    title
-    create        
-    author{
-      id
-      name
-      photo {
-        alt
-        url
-      }      
-    }
-    content(platform: APP)    
-    attachments{
-      title
-      url
-    }
-    relatedPosts{
-      title
-      id
-      urlApp
+query books{
+  books {
+    search(take: 10){
+      id,
+      thumbnail,
+      detail {
+        content
+      }
+
     }
   }
 }
 `
 export default {
 apollo:{
-    post: POST_QUERY
-}
+  $client:'lrmasClient',
+    books: POST_QUERY
+},
+methods: {
+  showInfo(){
+    debugger;
+    console.log(this.books)
+  }
+},
 }
 </script>
 

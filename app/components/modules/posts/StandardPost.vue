@@ -1,19 +1,23 @@
 <template>
  <Page class="page">
-   <!-- <GridLayout rows="75 * 50" v-if="post">
-   <GridLayout row="0" rows="*" columns="50 * 50" backgroundColor="#fff">
+  <!-- <ScrollView> -->
+ <GridLayout rows="* *" v-if="post">
+   <WrapLayout row="0" backgroundColor="#fff">
         <Label :text="post.header" class="category" />
         <AbsoluteLayout backgroundColor="#fff">
             <Image :src="post.principalImage.url" top="55" class="img-ppal" />
             <StackLayout class="titular-box">
                 <label :text="post.title" class="titular-ppal" textWrap="true" />
-                
+                <!-- <label :text="opening.id" class="titular-ppal" textWrap="true" /> -->
             </StackLayout>
         </AbsoluteLayout>
-   </GridLayout> -->
+    </WrapLayout>
     
-    <WebView :src="post.content" />
- 
+    <!-- <label row="0" text="priuba"></label> -->
+      <WebView row="1" :src="post.content" />
+    </GridLayout>
+    
+ <!-- </ScrollView> -->
    <!-- <label :text="post.header" class="category" /> -->
    <!-- </GridLayout>  -->
 </Page> 

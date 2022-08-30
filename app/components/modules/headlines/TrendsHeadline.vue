@@ -9,7 +9,7 @@
                     textWrap="true" class="text-thumb trend" />
             </StackLayout>
         </StackLayout>      
-    </WrapLayout>
+    </WrapLayout>	
 </template>
 
 <script>

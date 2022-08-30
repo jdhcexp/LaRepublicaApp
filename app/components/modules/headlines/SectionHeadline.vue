@@ -23,7 +23,7 @@
 <style scoped>
 .thumbnail-company {
     width: 48%;
-    margin-right: 17px;
+    margin-right: 15px;
     vertical-align: top;
 }
 .category-company {

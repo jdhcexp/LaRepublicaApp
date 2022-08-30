@@ -77,37 +77,37 @@ methods: {
 
 <style scoped>
 .company-indicators {
-    margin-left: 16px;
-    margin-right: 16px;
-    padding: 30px 32px 30px 32px;
+    margin-left: 14px;
+    margin-right: 14px;
+    padding: 26px 28px 26px 28px;
     height: auto;
     border-color: #C2C2C2;
     border-width: 0 0 1 0;
     clear: both;
 }
 .indicator {
-    font: normal normal bold 13px/16px Montserrat;
+    font: normal normal bold 11px/14px Montserrat;
     color: #000000;
     width: 53%;
 }
 .value {
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 11px;
     color: #000000;
     width: 18%;
     text-align: right;
     margin-right: 2%;
 }
 .porcent {
-    font: normal normal normal 13px/16px Montserrat;
+    font: normal normal normal 11px/14px Montserrat;
     color: #000000;
     width: 16%;
     text-align: center;
 }
 .icon-indicator {
     text-align: center;
-    font: normal normal normal 13px/16px Montserrat;
+    font: normal normal normal 11px/14px Montserrat;
     color: #000000;
     width: 11%;
 }

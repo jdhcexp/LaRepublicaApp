@@ -1,27 +1,27 @@
 <template>
- <Page class="page">
-  <!-- <ScrollView> -->
- <GridLayout rows="* *" v-if="post">
-   <WrapLayout row="0" backgroundColor="#fff">
-        <Label :text="post.header" class="category" />
-        <AbsoluteLayout backgroundColor="#fff">
+  <Page class="page">
+    <ScrollView>
+      <GridLayout rows="250 1000" v-if="post">
+        <WrapLayout row="0" backgroundColor="#fff">
+          <Label :text="post.header" class="category" />
+          <AbsoluteLayout backgroundColor="#fff">
             <Image :src="post.principalImage.url" top="55" class="img-ppal" />
             <StackLayout class="titular-box">
-                <label :text="post.title" class="titular-ppal" textWrap="true" />
-                <!-- <label :text="opening.id" class="titular-ppal" textWrap="true" /> -->
+              <label :text="post.title" class="titular-ppal" textWrap="true" />
+              <!-- <label :text="opening.id" class="titular-ppal" textWrap="true" /> -->
             </StackLayout>
-        </AbsoluteLayout>
-    </WrapLayout>
-    
-    <!-- <label row="0" text="priuba"></label> -->
-      <WebView row="1" :src="post.content" />
-    </GridLayout>
-    
- <!-- </ScrollView> -->
-   <!-- <label :text="post.header" class="category" /> -->
-   <!-- </GridLayout>  -->
-</Page> 
-<!-- <Page>
+          </AbsoluteLayout>
+        </WrapLayout>
+
+        <!-- <label row="0" text="priuba"></label> -->
+        <WebView row="1" :src="post.content" height="1000"/>
+      </GridLayout>
+
+    </ScrollView>
+    <!-- <label :text="post.header" class="category" /> -->
+    <!-- </GridLayout>  -->
+  </Page>
+  <!-- <Page>
     
       <GridLayout rows="75 * 50">
     <GridLayout row="0" rows="*" columns="50 * 50">
@@ -38,7 +38,7 @@
 
 import gql from 'graphql-tag';
 
-const SPOST_QUERY = gql `
+const SPOST_QUERY = gql`
 query Post($id: Int!){
   post(id: $id) {
     section {
@@ -73,41 +73,41 @@ query Post($id: Int!){
 }
 `
 
-export default{
-    apollo:{
-        post:{
-            query: SPOST_QUERY,
-            variables() {
-                return {id: parseInt(this.postId)}
-            }
-        } 
-    },
-    props:['postId']
+export default {
+  apollo: {
+    post: {
+      query: SPOST_QUERY,
+      variables() {
+        return { id: parseInt(this.postId) }
+      }
+    }
+  },
+  props: ['postId']
 }
 
 </script>
 
 <style scoped>
 .category {
-    width: 100%;
-    text-align: center;
-    margin-top: 20px;
-    font-size: 12px;
-    color: #808080;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 600;
+  width: 100%;
+  text-align: center;
+  margin-top: 17px;
+  font-size: 10px;
+  color: #808080;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 600;
 }
 
 .titular-box {
-    margin-left: 9%;
-    width: 82%;
-    background-color: #fff;
+  margin-left: 9%;
+  width: 82%;
+  background-color: #fff;
 }
 
 .titular-ppal {
-    text-align: center;
-    font-size: 22px;
-    color: #000;
-    font-family: 'Bitter', serif;
+  text-align: center;
+  font-size: 19px;
+  color: #000;
+  font-family: 'Bitter', serif;
 }
 </style>

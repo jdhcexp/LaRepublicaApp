@@ -41,7 +41,7 @@
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout>
-                   <MyNewsLogin></MyNewsLogin>
+                   <MyNews></MyNews>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
@@ -103,7 +103,7 @@ import Section from "../pages/Section";
 import VideosTabMenu from "./VideosTabMenu";
 import Specials from "../pages/Specials.vue";
 import Partners from "../pages/Partners.vue";
-import MyNewsLogin from "../pages/MyNewsLogin";
+import MyNews from "../pages/LRmas/MyNews.vue";
 
 export default {
     components: {
@@ -116,7 +116,7 @@ export default {
     VideosTabMenu,
     Specials,
     Partners,
-    MyNewsLogin
+    MyNews
 },
     data() {
         return {};
@@ -125,15 +125,14 @@ export default {
 </script>
 
 <style scoped>
+.menu {
+    un-selected-item-color: #808080;
+    highlight-color: #C51A1B;
+    selected-item-color: #C51A1B;
+}
 .item {
     text-align: center;
     font: normal normal bold 10px/13px Montserrat;
     color: #C51A1B;
-}
-
-TabStrip.menu {
-    un-selected-item-color: #808080;
-    highlight-color: #C51A1B;
-    selected-item-color: #C51A1B;
 }
 </style>

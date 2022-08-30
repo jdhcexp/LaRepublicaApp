@@ -2,7 +2,7 @@
     <WrapLayout backgroundColor="#fff">
         <Label :text="opening.header" class="category" />
         <AbsoluteLayout backgroundColor="#fff">
-            <Image :src="opening.principalImage.url" top="55" class="img-ppal" @tap="onNavigationItemTap(opening.id)" />
+            <Image :src="opening.principalImage.url" top="49" class="img-ppal" @tap="onNavigationItemTap(opening.id)" />
             <StackLayout class="titular-box">
                 <label :text="opening.title" class="titular-ppal" textWrap="true" />
                 <!-- <label :text="opening.id" class="titular-ppal" textWrap="true" /> -->
@@ -73,6 +73,7 @@ export default {
     color: #808080;
     font-family: 'Montserrat', sans-serif;
     font-weight: 600;
+    text-transform: uppercase;
 }
 
 .titular-box {

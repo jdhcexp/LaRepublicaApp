@@ -56,13 +56,13 @@ export default {
     background-color: #F5F4F6;
     margin-left: 2%;
     margin-right: 2%;
-    padding: 34px 32px 34px 32px;
+    padding: 30px 28px 30px 28px;
     height: auto;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 13px;
+    font-size: 11px;
     color: #000000;
     width: 96%;
-    margin-top: 36px;
+    margin-top: 32px;
 }
 </style>

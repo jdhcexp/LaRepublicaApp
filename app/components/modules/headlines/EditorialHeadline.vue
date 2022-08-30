@@ -24,27 +24,27 @@ props: {
 <style scoped>
 .analysis-editorial {
     background-color: #F5F4F6;
-    margin-top: 102px;
+    margin-top: 91px;
 }
 .category-analysis {
-    margin-top: 54px;
+    margin-top: 48px;
 }
 .title-analysis {
     text-align: center;
-    font: normal normal normal 22px/28px Bitter;
+    font: normal normal normal 19px/25px Bitter;
     color: #000000;
     width: 76%;
-    margin-top: 7px;
+    margin-top: 6px;
 }
 .date-analysis {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     font-weight: 500;
-    font-size: 14px;
+    font-size: 12px;
     color: #808080;
     width: 76%;
-    margin-top: 7px;
-    margin-bottom: 21px;
+    margin-top: 6px;
+    margin-bottom: 18px;
 }
 .back-analysis {
     background: linear-gradient(to bottom, #F5F4F6 0%, #F5F4F6 50%, #fff 50%, #fff 100%);

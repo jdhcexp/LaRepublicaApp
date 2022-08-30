@@ -4,13 +4,39 @@ import BottomNavigation from '@nativescript-community/ui-material-bottom-navigat
 import TabsPlugin from '@nativescript-community/ui-material-tabs/vue';
 import ApolloClient from 'apollo-boost';
 import VueApollo from 'vue-apollo';
+import  Vuex  from "vuex";
+import authStore from './store/auth/index'
+
 
 Vue.use(RadSideDrawer)
 Vue.use(BottomNavigation);
 Vue.use(TabsPlugin);
 Vue.use(VueApollo);
+Vue.use(Vuex);
+// Vue.use(authStore);
+
 
 import App from './components/App'
+
+const store = new Vuex.Store({
+  modules:{
+    auth: authStore
+  }
+  // state(){
+  //   return {
+  //     accessToken: '1234567',
+  //     refreshToken: '',
+  //     accessTokenExpiration: '',
+  //     refreshTokenExpiration: '',
+  //     idTokenExpiration: ''
+  //   }
+  // },
+  // getters: {
+  //   getToken(state){
+  //     return state.accessToken;
+  //   }
+  // }
+})
 
 var auth_service_1 = require("./auth-service");
 auth_service_1.configureOAuthProviders();
@@ -25,7 +51,7 @@ const defaultClient = new ApolloClient({
 
 const marketClient = new ApolloClient({
   uri: 'https://gql.lalr.co/gqlq',
- 
+
 })
 
 const lrmasClient = new ApolloClient({
@@ -46,5 +72,6 @@ const apolloProvider = new VueApollo({
 
 new Vue({
   apolloProvider,
+  store: store,
   render: h => h(App)
 }).$start()

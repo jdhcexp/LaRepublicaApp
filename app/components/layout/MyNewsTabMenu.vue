@@ -2,11 +2,12 @@
     <StackLayout>
        	<ScrollView orientation="horizontal" height="68" class="enterprise-gral">
 			<GridLayout :columns="genCols">
-				<label column="0" text="Editorial" class="menu" :class="{active: selectedItem == 0}" textWrap="true" @tap="selectedItem = 0"></label>
+                <label v-for="(item, index) in topics" :key="index" :column="index" :text="item.topicName" class="menu" :class="{active: selectedItem == index } " textWrap="true" @tap="selectItem(item, index)"></label>
+
+				<!-- <label column="0" text="Editorial" class="menu" :class="{active: selectedItem == 0}" textWrap="true" @tap="selectedItem = 0"></label>
 				<label column="1" text="Análisis" class="menu" :class="{active: selectedItem == 1}" textWrap="true" @tap="selectedItem = 1"></label>
 				<label column="2" text="Personaje del dia" class="menu" :class="{active: selectedItem == 2}" textWrap="true" @tap="selectedItem = 2"></label>
-				<label column="3" text="Invitados" class="menu" :class="{active: selectedItem == 3}" textWrap="true" @tap="selectedItem = 3"></label>
-				<label v-for="(item, index) in tribunesFilter" :key="index" :column="index + 4" :text="item.name" class="menu" :class="{active: selectedItem == index + 4} " textWrap="true" @tap="selectedItem = index+4"></label>
+				<label column="3" text="Invitados" class="menu" :class="{active: selectedItem == 3}" textWrap="true" @tap="selectedItem = 3"></label> -->
 				<!-- <label column="5" text="Datos cocteleros" class="enterprise-menu" textWrap="true"></label>
 				<label column="6" text="Mercado cambiario" class="enterprise-menu" textWrap="true"></label>
 				<label column="7" text="Macro" class="enterprise-menu" textWrap="true"></label>
@@ -21,77 +22,50 @@
             <SegmentedBarItem v-for="item in tribunesFilter" :key="item.id" :title="item.name" />
         </SegmentedBar> -->
         <GridLayout>
-            <Editorial v-if="selectedItem == 0"></Editorial>
+            <section :sect="sectionId"></section>
+            <!-- <Editorial v-if="selectedItem == 0"></Editorial>
             <Analysis v-if="selectedItem == 1"></Analysis>
             <DayCharacter v-if="selectedItem == 2"></DayCharacter>
             <Guests v-if="selectedItem == 3"></Guests>   
-            <Tribune v-if="selectedItem > 3" :target="selectTribune"></Tribune>       
+            <Tribune v-if="selectedItem > 3" :target="selectTribune"></Tribune>        -->
         </GridLayout>
     </StackLayout>
 </template>
 
 
 <script>
-import gql from 'graphql-tag';
-
-import Editorial from "../pages/Editorial";
-import Analysis from "../pages/Analysis";
-import DayCharacter from "../pages/DayCharacter.vue";
-import Guests from "../pages/Guests";
-import Tribune from "../pages/Tribune"
-
-const TRIBUNES_NAME_QUERY = gql`
-    query DayChar {
-            analysis {
-                tribunes{
-                    name
-                    id     
-                }
-            }
-    }`;
-
+import Section from '../pages/Section.vue';
 
 export default {
-    components: {
-        Editorial,
-        Analysis,
-        DayCharacter,
-        Guests,
-        Tribune
+    components:{
+        Section
     },
-    apollo: {
-        analysis: TRIBUNES_NAME_QUERY
-    },
+   props:['topics'],
     data() {
         return {
             selectedItem: 0,
+            sectionId: 12,
         };
     },
     computed: {
-        tribunesFilter() {
-            if (this.tribunesExist) {
-                return this.analysis.tribunes;
-            }
-            else {
-                this.tribunes;
-            }
-        },
-        selectTribune(){            
-            return this.analysis.tribunes[this.selectedItem-4].name;            
-        },
         genCols(){
-            let cols = 4;
-            if (this.tribunesExist) {
-                cols = cols + this.analysis.tribunes.length;
-            }            
-            let columns = '';
-            for(let i = 0; i<cols;i++){
-                columns = columns+'auto ';
-            }
+            let columns='';
+            this.topics.forEach(element => {
+                columns=columns+'auto '
+            });
             return columns;
+        }
+        
+        
+    },
+    methods:{
+        showTopics(){
+            console.log(this.topics)
         },
-        tribunesExist(){
-            return this.analysis && this.analysis.tribunes && this.analysis.tribunes.length > 0;
+        selectItem(item, index){
+            debugger;
+            this.selectedItem = index;
+            this.sectionId = item.topicId;
         }
     }
 };

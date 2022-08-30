@@ -20,7 +20,7 @@ import MainHeadline from "../modules/headlines/MainHeadline";
 import StandardHeadline from "../modules/headlines/StandardHeadline";
 import SectionHeadline from "../modules/headlines/SectionHeadline";
 
-const SECTION_QUERY = gql `
+const SECTION_QUERY = gql`
 query enterprises($id: Int!){
   section(id: $id) {        
     id
@@ -60,6 +60,7 @@ export default {
     },
     props:['sect'],
     apollo: {
+      
       section:{
         query: SECTION_QUERY,
         variables() {

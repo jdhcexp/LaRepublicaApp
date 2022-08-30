@@ -40,7 +40,7 @@ export default{
 
 .item {
     text-align: center;
-    font: normal normal bold 12px/15px Montserrat;
+    font: normal normal bold 10px/13px Montserrat;
     color: #C51A1B;
 }
 

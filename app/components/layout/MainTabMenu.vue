@@ -35,65 +35,78 @@
                 </MDTabStripItem>
             </MDTabStrip>
             <MDTabContentItem>
-                <GridLayout>
-                    <LastNews></LastNews>
+                <GridLayout rows="*,auto">
+                    <LastNews row="0"></LastNews>
+                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>
-                   <MyNews></MyNews>
+                <!-- <button @tap="showInfo">show info</button> -->
+                <GridLayout rows="*,auto">
+                    <MyNews row="0"></MyNews>
+                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>
-                    <Trends></Trends>
+                <GridLayout rows="*,auto">
+                    <Trends row="0"></Trends>
+                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>
-                    <Agencies></Agencies>
+                <GridLayout rows="*,auto">
+                    <Agencies row="0"></Agencies>
+                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>
-                    <EnterpriseTabMenu></EnterpriseTabMenu>
+                <GridLayout rows="*,auto">
+                    <EnterpriseTabMenu row="0"></EnterpriseTabMenu>
+                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>
+                <GridLayout rows="*,auto">
                     <AnalysisTabMenu></AnalysisTabMenu>
+                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>
-                    <Section sect="12"></Section>
+                <GridLayout rows="*,auto">
+                    <Section sect="12" row="0"></Section>
+                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>
-                    <VideosTabMenu></VideosTabMenu>
+                <GridLayout rows="*,auto">
+                    <VideosTabMenu row="0"></VideosTabMenu>
+                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>
-                    <Specials></Specials>
+                <GridLayout rows="*,auto">
+                    <Specials row="0"></Specials>
+                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <GridLayout>
-                    <Partners></Partners>
+                <GridLayout rows="*,auto">
+                    <Partners row="0"></Partners>
+                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
         </MDTabs>
     </StackLayout>
-     
-   <!-- <GridLayout>
+
+    <!-- <GridLayout>
 
    </GridLayout> -->
-   
+
 </template>
 
 <script>
+import gql from 'graphql-tag';
+
 import LastNews from "../pages/LastNews.vue";
 import Trends from "../pages/Trends";
 import Agencies from "../pages/Agencies";
@@ -104,23 +117,46 @@ import VideosTabMenu from "./VideosTabMenu";
 import Specials from "../pages/Specials.vue";
 import Partners from "../pages/Partners.vue";
 import MyNews from "../pages/LRmas/MyNews.vue";
+import IndicatorsBar from '../layout/IndicatorsBar.vue'
+
+const INDICATORS_BAR_QUERY = gql`
+query bar{
+  banner{
+    name
+    quoteValue {
+      value
+      percentageVariation
+      variationType
+    }
+  }
+}
+`
 
 export default {
     components: {
-    LastNews,
-    Trends,
-    Agencies,
-    EnterpriseTabMenu,
-    AnalysisTabMenu,
-    Section,
-    VideosTabMenu,
-    Specials,
-    Partners,
-    MyNews
-},
+        LastNews,
+        Trends,
+        Agencies,
+        EnterpriseTabMenu,
+        AnalysisTabMenu,
+        Section,
+        VideosTabMenu,
+        Specials,
+        Partners,
+        MyNews, IndicatorsBar
+    },
+    apollo: {
+        $client: 'marketClient',
+        banner: INDICATORS_BAR_QUERY
+    },  
     data() {
         return {};
+    },
+methods:{
+    showInfo(){
+        console.log(this.banner);
     }
+}
 };
 </script>
 
@@ -130,6 +166,7 @@ export default {
     highlight-color: #C51A1B;
     selected-item-color: #C51A1B;
 }
+
 .item {
     text-align: center;
     font: normal normal bold 10px/13px Montserrat;

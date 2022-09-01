@@ -7,6 +7,11 @@ import VueApollo from 'vue-apollo';
 import  Vuex  from "vuex";
 import authStore from './store/auth/index'
 
+import RadChart from 'nativescript-ui-chart/vue';
+
+Vue.use(RadChart);
+// Vue.use(RadCartesianChart);
+
 
 Vue.use(RadSideDrawer)
 Vue.use(BottomNavigation);
@@ -17,6 +22,7 @@ Vue.use(Vuex);
 
 
 import App from './components/App'
+import { RadCartesianChart } from 'nativescript-ui-chart';
 
 const store = new Vuex.Store({
   modules:{

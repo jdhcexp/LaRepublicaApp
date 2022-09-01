@@ -1,8 +1,8 @@
 <template>
     <StackLayout>
-       	<ScrollView orientation="horizontal" height="68" class="enterprise-gral">
+       	<ScrollView orientation="horizontal" height="68" class="enterprise-gral" v-if="topicsExist">
 			<GridLayout :columns="genCols">
-                <label v-for="(item, index) in topics" :key="index" :column="index" :text="item.topicName" class="menu" :class="{active: selectedItem == index } " textWrap="true" @tap="selectItem(item, index)"></label>
+                <label v-for="(item, index) in me.news.topics" :key="index" :column="index" :text="item.topicName" class="menu" :class="{active: selectedItem == index } " textWrap="true" @tap="selectItem(item, index)"></label>
 
 				<!-- <label column="0" text="Editorial" class="menu" :class="{active: selectedItem == 0}" textWrap="true" @tap="selectedItem = 0"></label>
 				<label column="1" text="Análisis" class="menu" :class="{active: selectedItem == 1}" textWrap="true" @tap="selectedItem = 1"></label>
@@ -34,13 +34,42 @@
 
 
 <script>
+import gql from 'graphql-tag';
 import Section from '../pages/Section.vue';
+
+const TOPICS_QUERY = gql`
+query topics{
+  me{
+    news {
+      topics{
+        id
+        topicName
+      }
+    }
+  }
+}
+`
+
 
 export default {
     components:{
         Section
     },
-   props:['topics'],
+   props:['accestoken'],
+   apollo: {
+        $client: "lrmasClient",
+        me: {
+            query: TOPICS_QUERY,
+            context: {
+                headers: {
+                    Authorization: "Bearer "
+                }
+            },
+            variables() {
+           return {id: this.accestoken}
+        }
+        }
+    },
     data() {
         return {
             selectedItem: 0,
@@ -49,18 +78,21 @@ export default {
     },
     computed: {
         genCols(){
+            
             let columns='';
-            this.topics.forEach(element => {
+            this.me.news.topics.forEach(element => {
                 columns=columns+'auto '
             });
             return columns;
+        },
+        topicsExist(){
+            return this.me && this.me.news && this.me.news.topics && this.me.news.topics.length > 0;
         }
-        
         
     },
     methods:{
         showTopics(){
-            console.log(this.topics)
+            console.log(this.me.news.topics)
         },
         selectItem(item, index){
             debugger;

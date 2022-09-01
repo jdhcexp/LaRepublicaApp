@@ -1,8 +1,4 @@
 <template>
-   
- 
-   
-
     <StackLayout>
         <MDBottomNavigation selectedIndex="0">
             <MDTabStrip backgroundColor="#fff" class="menu">
@@ -25,10 +21,10 @@
 						verticalAlignment="center" />
                     <Label text="Configuración" class="item-footer" />
                 </MDTabStripItem>
-                <!--<MDTabStripItem>
+                <!-- <MDTabStripItem>
                     <Label text="test post" lass="item-footer" />
                     <Image src="res://search"></Image>
-                </MDTabStripItem>-->
+                </MDTabStripItem> -->
               
             </MDTabStrip>
             <MDTabContentItem>               
@@ -51,11 +47,11 @@
                     <ConfigTabMenu></ConfigTabMenu>
                 </GridLayout>               
             </MDTabContentItem>
-             <!--<MDTabContentItem>
+             <!-- <MDTabContentItem>
                 <GridLayout>                   
-                    <TestTabMenu></TestTabMenu>
+                    <Indicator></Indicator>
                 </GridLayout>               
-            </MDTabContentItem>-->
+            </MDTabContentItem> -->
         </MDBottomNavigation>
     </StackLayout>
 </template>
@@ -66,13 +62,15 @@ import ConfigTabMenu from './ConfigTabMenu.vue';
 //     import post1 from '../pages/test/post1.vue';
     import TestTabMenu from './TestTabMenu.vue';
 import IndicatorsTabMenu from './IndicatorsTabMenu.vue';
+import Indicator from '../modules/posts/Indicator.vue';
     export default {
         components: {
     MainTabMenu,
     ConfigTabMenu,
     // post1,
     TestTabMenu,
-    IndicatorsTabMenu
+    IndicatorsTabMenu,
+    Indicator
 },
         data() {
             return {};

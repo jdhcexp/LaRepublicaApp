@@ -12,6 +12,7 @@
     "apollo-boost": "^0.4.9",
     "graphql": "^15.8.0",
     "nativescript-oauth2": "^3.0.10",
+    "nativescript-ui-chart": "^9.0.2",
     "nativescript-ui-sidedrawer": "~10.0.2",
     "nativescript-vue": "~2.9.0",
     "rxjs": "~7.5.0",

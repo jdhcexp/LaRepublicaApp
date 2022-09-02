@@ -1,131 +1,111 @@
 <template>
-    <StackLayout>
-       	<ScrollView orientation="horizontal" height="68" class="enterprise-gral" v-if="topicsExist">
-			<GridLayout :columns="genCols">
-                <label v-for="(item, index) in me.news.topics" :key="index" :column="index" :text="item.topicName" class="menu" :class="{active: selectedItem == index } " textWrap="true" @tap="selectItem(item, index)"></label>
 
-				<!-- <label column="0" text="Editorial" class="menu" :class="{active: selectedItem == 0}" textWrap="true" @tap="selectedItem = 0"></label>
-				<label column="1" text="Análisis" class="menu" :class="{active: selectedItem == 1}" textWrap="true" @tap="selectedItem = 1"></label>
-				<label column="2" text="Personaje del dia" class="menu" :class="{active: selectedItem == 2}" textWrap="true" @tap="selectedItem = 2"></label>
-				<label column="3" text="Invitados" class="menu" :class="{active: selectedItem == 3}" textWrap="true" @tap="selectedItem = 3"></label> -->
-				<!-- <label column="5" text="Datos cocteleros" class="enterprise-menu" textWrap="true"></label>
-				<label column="6" text="Mercado cambiario" class="enterprise-menu" textWrap="true"></label>
-				<label column="7" text="Macro" class="enterprise-menu" textWrap="true"></label>
-				<label column="8" text="Bancos" class="enterprise-menu" textWrap="true"></label> -->
-			</GridLayout>
-		</ScrollView>
-        <!-- <SegmentedBar v-model="selectedItem">
-            <SegmentedBarItem title="Editorial" textWrap="true" />
-            <SegmentedBarItem title="Análisis" />
-            <SegmentedBarItem title="Personaje del dia" />
-            <SegmentedBarItem title="Invitados" />
-            <SegmentedBarItem v-for="item in tribunesFilter" :key="item.id" :title="item.name" />
-        </SegmentedBar> -->
+    <StackLayout>
+        <!-- <button @tap="clearToken()">4567890</button> -->
+        <ScrollView orientation="horizontal" height="68" class="enterprise-gral" v-if="getTopics">
+            <GridLayout :columns="genCols">
+                <label v-for="(item, index) in me.news.topics" :key="index" :column="index" :text="item.topicName"
+                    class="menu" :class="{ active: selectedItem == index }" textWrap="true"
+                    @tap="selectItem(item, index)"></label>
+
+            </GridLayout>
+        </ScrollView>
+
         <GridLayout>
             <section :sect="sectionId"></section>
-            <!-- <Editorial v-if="selectedItem == 0"></Editorial>
-            <Analysis v-if="selectedItem == 1"></Analysis>
-            <DayCharacter v-if="selectedItem == 2"></DayCharacter>
-            <Guests v-if="selectedItem == 3"></Guests>   
-            <Tribune v-if="selectedItem > 3" :target="selectTribune"></Tribune>        -->
+
         </GridLayout>
     </StackLayout>
 </template>
 
 
 <script>
-import gql from 'graphql-tag';
+
+import { ApplicationSettings } from '@nativescript/core';
 import Section from '../pages/Section.vue';
 
-const TOPICS_QUERY = gql`
-query topics{
-  me{
-    news {
-      topics{
-        id
-        topicName
-      }
-    }
-  }
-}
-`
-
-
 export default {
-    components:{
+    components: {
         Section
-    },
-   props:['accestoken'],
-   apollo: {
-        $client: "lrmasClient",
-        me: {
-            query: TOPICS_QUERY,
-            context: {
-                headers: {
-                    Authorization: "Bearer "
-                }
-            },
-            variables() {
-           return {id: this.accestoken}
-        }
-        }
     },
     data() {
         return {
             selectedItem: 0,
-            sectionId: 12,
+            me: null,
+            sectionId: 12
         };
     },
     computed: {
-        genCols(){
-            
-            let columns='';
+        genCols() {
+
+            let columns = '';
             this.me.news.topics.forEach(element => {
-                columns=columns+'auto '
+                columns = columns + 'auto '
             });
             return columns;
         },
-        topicsExist(){
+        topicsExist() {
             return this.me && this.me.news && this.me.news.topics && this.me.news.topics.length > 0;
-        }
-        
-    },
-    methods:{
-        showTopics(){
-            console.log(this.me.news.topics)
         },
-        selectItem(item, index){
-            debugger;
-            this.selectedItem = index;
-            this.sectionId = item.topicId;
+        getTopics() {
+            if (this.me == null) {
+                this.me = this.$store.getters['lrmasgql/getTopics']
+            }
+            return this.me != null
+
+        },
+        methods: {
+            showTopics() {
+                debugger;
+
+                this.me = this.$store.getters['lrmasgql/getTopics']
+
+                console.log(this.me)
+            },
+            selectItem(item, index) {
+                debugger;
+                this.selectedItem = index;
+                this.sectionId = item.topicId;
+            },
+            clearToken() {
+                debugger;
+                ApplicationSettings.setString("token", "")
+            }
+
+        },
+        async beforeMount() {
+            console.log("beforeMount")
+            this.$store.dispatch('lrmasgql/getTopicsInfo');
+
         }
     }
-};
+}
 </script>
 
 <style scoped>
 .enterprise-gral {
-	margin: 0 5px;
+    margin: 0 5px;
 }
+
 .menu {
-	border-color: #C2C2C2;
-	border-width: 1 1 1 1;
-	height: 68px;
-	padding: 9px 18px;
-	text-align: center;
-	font-size: 11px;
-	line-height: 14px;
-	font-family: Montserrat;
-	font-weight: 500;
-	color: #808080;
-	border-radius: 32px;
-	margin-left: 5px;
-	margin-right: 5px;
+    border-color: #C2C2C2;
+    border-width: 1 1 1 1;
+    height: 68px;
+    padding: 9px 18px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 14px;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: #808080;
+    border-radius: 32px;
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 .active {
-	color: #C51A1B;
-	background-color: #EEEEEE;
-	border-color: #EAEAEA;
+    color: #C51A1B;
+    background-color: #EEEEEE;
+    border-color: #EAEAEA;
 }
 </style>

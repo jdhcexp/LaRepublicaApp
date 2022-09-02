@@ -1,3 +1,4 @@
+import { ApplicationSettings } from "@nativescript/core";
 
 
 export default {
@@ -16,6 +17,7 @@ export default {
           console.log("back to main page with access token: ");
           // console.log(tokenResult);
           // return tokenResult;
+          ApplicationSettings.setString("token", tokenResult.accessToken);
           context.commit('saveToken', tokenResult.accessToken);
       }
   });

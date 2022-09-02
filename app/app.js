@@ -6,6 +6,8 @@ import ApolloClient from 'apollo-boost';
 import VueApollo from 'vue-apollo';
 import  Vuex  from "vuex";
 import authStore from './store/auth/index'
+import lrgql from './store/lrgql';
+import { ApplicationSettings } from '@nativescript/core';
 
 import RadChart from 'nativescript-ui-chart/vue';
 
@@ -23,10 +25,13 @@ Vue.use(Vuex);
 
 import App from './components/App'
 import { RadCartesianChart } from 'nativescript-ui-chart';
+import lrmasgql from './store/lrmasgql';
 
 const store = new Vuex.Store({
   modules:{
-    auth: authStore
+    auth: authStore,
+    lrgql: lrgql,
+    lrmasgql: lrmasgql
   }
   // state(){
   //   return {

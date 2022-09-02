@@ -1,11 +1,12 @@
 <template>
 <GridLayout>
-  <StackLayout  v-if="getToken == ''">
-<label text="MI SELECCIÓN DE NOTICIAS"></label>
-<label text="Vea las noticias personalizadas de acuerdo con su top 20 de los temas de interes"></label>
-<login-module></login-module>
+ 
+  <StackLayout>
+  
+<login-module  v-if="!checktok"></login-module>
 </StackLayout>
-<MyNewsTabMenu v-if="isAuthenticated" accestoken="qwertyudfghjxdcfvgbhfghj"></MyNewsTabMenu>
+
+<MyNewsTabMenu v-if="checktok"></MyNewsTabMenu>
 </GridLayout>
 <!-- <GridLayout> -->
 <!-- <my-news-tab-menu v-if="getToken != ''"></my-news-tab-menu> -->
@@ -19,6 +20,7 @@
 import gql from 'graphql-tag';
 import LoginModule from '../../modules/LoginModule.vue';
 import MyNewsTabMenu from  '../../layout/MyNewsTabMenu.vue'
+import { ApplicationSettings } from '@nativescript/core';
   
 const ME_QUERY = gql`
 query meInfo{
@@ -76,14 +78,18 @@ query meInfo{
     // },
     computed: {
         getToken() {
-            return this.$store.getters["auth/getToken"];
+            return ApplicationSettings.getString('token');
         },
-        isAuthenticated(){
+        checktok(){        
+          console.log("QWERTYUISIJOISJOIJSOIJSOISJOSIJOSJOSIJOSIJSOIJOSI")
           return this.getToken != '';
         }
     },
     methods: {
-       
+       showinfo(){
+        debugger;
+        console.log(ApplicationSettings.getString('token'));
+       }
     },
     components: { LoginModule, MyNewsTabMenu }
 }

@@ -1,3 +1,4 @@
 export default {
-  topics: null	
+  topics: null,
+  postsByTopic: null
 }

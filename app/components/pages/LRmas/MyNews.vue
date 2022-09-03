@@ -91,6 +91,11 @@ query meInfo{
         console.log(ApplicationSettings.getString('token'));
        }
     },
-    components: { LoginModule, MyNewsTabMenu }
+    components: { LoginModule, MyNewsTabMenu },
+    beforeMount() {
+      if(this.checktok){
+        this.$store.dispatch('lrmasgql/getTopicsInfo');
+      }
+    },
 }
 </script>

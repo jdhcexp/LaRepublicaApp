@@ -52,7 +52,7 @@ const store = new Vuex.Store({
 var auth_service_1 = require("./auth-service");
 auth_service_1.configureOAuthProviders();
 
-Vue.config.silent = !__DEV__
+// Vue.config.silent = !__DEV__
 
 
 const defaultClient = new ApolloClient({

@@ -6,13 +6,15 @@
             <GridLayout :columns="genCols">
                 <label v-for="(item, index) in me.news.topics" :key="index" :column="index" :text="item.topicName"
                     class="menu" :class="{ active: selectedItem == index }" textWrap="true"
-                    @tap="selectItem(item, index)"></label>
+                    @tap="changeTopic(index, item)"></label>
 
             </GridLayout>
         </ScrollView>
 
         <GridLayout>
-            <section :sect="sectionId"></section>
+        
+            <MyNewsTopicSection :topicId="topicId"></MyNewsTopicSection>
+        
 
         </GridLayout>
     </StackLayout>
@@ -23,16 +25,18 @@
 
 import { ApplicationSettings } from '@nativescript/core';
 import Section from '../pages/Section.vue';
+import MyNewsTopicSection from '../pages/LRmas/MyNewsTopicSection.vue';
 
 export default {
     components: {
-        Section
-    },
+    Section,
+    MyNewsTopicSection
+},
     data() {
         return {
             selectedItem: 0,
             me: null,
-            sectionId: 12
+            topicId: 12
         };
     },
     computed: {
@@ -53,7 +57,8 @@ export default {
             }
             return this.me != null
 
-        },
+        }
+    },
         methods: {
             showTopics() {
                 debugger;
@@ -62,24 +67,30 @@ export default {
 
                 console.log(this.me)
             },
-            selectItem(item, index) {
-                debugger;
+            changeTopic(index, item) {       
+                
                 this.selectedItem = index;
-                this.sectionId = item.topicId;
+                this.topicId = item.topicId;
             },
             clearToken() {
                 debugger;
                 ApplicationSettings.setString("token", "")
             }
 
-        },
-        async beforeMount() {
-            console.log("beforeMount")
-            this.$store.dispatch('lrmasgql/getTopicsInfo');
 
-        }
+        },
+        // async beforeMount() {
+        //     debugger;    
+        //     console.log("beforeCRwte")
+        //     this.$store.dispatch('lrmasgql/getTopicsInfo');
+
+        // },
+        // beforeMount() {
+        //     console.log("beforemount event fired in mynewstab");
+
+        // },
     }
-}
+
 </script>
 
 <style scoped>

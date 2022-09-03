@@ -21,10 +21,10 @@
 						verticalAlignment="center" />
                     <Label text="Configuración" class="item-footer" />
                 </MDTabStripItem>
-                <MDTabStripItem>
+                <!-- <MDTabStripItem>
                     <Label text="test post" lass="item-footer" />
                     <Image src="res://search"></Image>
-                </MDTabStripItem>
+                </MDTabStripItem> -->
               
             </MDTabStrip>
             <MDTabContentItem>               
@@ -47,11 +47,11 @@
                     <ConfigTabMenu></ConfigTabMenu>
                 </GridLayout>               
             </MDTabContentItem>
-             <MDTabContentItem>
+             <!-- <MDTabContentItem>
                 <GridLayout>                   
                     <Post1></Post1>
                 </GridLayout>               
-            </MDTabContentItem>
+            </MDTabContentItem> -->
         </MDBottomNavigation>
     </StackLayout>
 </template>

@@ -41,6 +41,9 @@ export default {
             debugger;
         }
     },
+    beforeMount() {
+        console.log("ASDFGHJKASDFGHJASDFGHJKL");
+    },
 };
 </script>
 

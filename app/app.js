@@ -1,12 +1,15 @@
-import Vue from 'nativescript-vue'
-import RadSideDrawer from 'nativescript-ui-sidedrawer/vue'
+import Vue from 'nativescript-vue';
+import NSVueLifecycleHooks from 'nativescript-vue-lifecycle-hooks';
+import RadSideDrawer from 'nativescript-ui-sidedrawer/vue';
 import BottomNavigation from '@nativescript-community/ui-material-bottom-navigation/vue';
 import TabsPlugin from '@nativescript-community/ui-material-tabs/vue';
 import ApolloClient from 'apollo-boost';
 import VueApollo from 'vue-apollo';
 import  Vuex  from "vuex";
-import authStore from './store/auth/index'
+import authStore from './store/auth/index';
 import lrgql from './store/lrgql';
+
+
 import { ApplicationSettings } from '@nativescript/core';
 
 import RadChart from 'nativescript-ui-chart/vue';
@@ -20,6 +23,7 @@ Vue.use(BottomNavigation);
 Vue.use(TabsPlugin);
 Vue.use(VueApollo);
 Vue.use(Vuex);
+Vue.use(NSVueLifecycleHooks)
 // Vue.use(authStore);
 
 

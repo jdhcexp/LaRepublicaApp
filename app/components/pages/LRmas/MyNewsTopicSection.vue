@@ -1,12 +1,12 @@
 <template>
     <ScrollView>
       
-      <WrapLayout backgroundColor="#fff" v-if="getHome">   
+      <WrapLayout backgroundColor="#fff" v-if="getPosts">   
         <!-- <button @tap="showinfo">1212312</button>  -->
         <button @tap="eraseToken">8979878</button> 
   
-        <MainHeadline :opening="first" v-if="home && home.opening && home.opening.length > 0"></MainHeadline>
-        <WrapLayout backgroundColor="#fff" v-if="home && home.opening && home.opening.length > 0">
+        <MainHeadline :opening="first" v-if="getPosts"></MainHeadline>
+        <WrapLayout backgroundColor="#fff" v-if="getPosts">
           <StandardHeadline v-for="hl in headLines" :key="hl.id" :headLine="hl"></StandardHeadline>
           <label v-for="hl in headLines" :key="hl.id">{{ hl.id }}</label>
         </WrapLayout>
@@ -38,25 +38,25 @@
     computed: {
   
       first() {
-        return this.home.opening[0];
+        return this.posts[1];
       },
       headLines() {
         debugger;
-        return this.home.opening.slice(1);
+        return this.posts.slice(1);
       },
       getPosts() {
         if(this.posts==null){
-          this.home=this.$store.getters['lrmasgql/getHome']
+          this.posts=this.$store.getters['lrmasgql/getTopicPosts']
         }
-        return this.home != null
+        return this.posts != null
       }
     },
     methods: {
-   
+        
       showinfo(){
   
         debugger;
-        this.$store.dispatch('lrmasgql/getMeInfo');
+        this.$store.dispatch('lrmasgql/getTopicPosts');
         // console.log("info in last news");
         // console.log(this.home);
       },
@@ -65,12 +65,24 @@
         ApplicationSettings.setString("token","");
       }
     },
+    watch: {
+        topicId:function(newVal, oldVal){
+            console.log("newval: "+newVal+" oldval: "+oldVal);
+            // await this.$store.dispatch('lrmasgql/loadPostsByTopic',newVal);
+            // this.posts=this.$store.getters['lrmasgql/getTopicPosts'];
+            this.$store.dispatch('lrmasgql/loadPostsByTopic',newVal).then(() => {
+                console.log("changegvshdjasdjahbhsja")
+                debugger;
+                this.posts=this.$store.getters['lrmasgql/getTopicPosts']
+            })
+        }
+    }
+    // loaded(args) {
+    //         console.log('loaded from page 2')
+    // },
    
-    beforeUpdate() {
-    console.log("brforeupdate dfdfgdfgdgdfgdfgdfgdfgdfgdfgdf")
-    },
-  
-  };
+   
+  }
  
   </script>
   

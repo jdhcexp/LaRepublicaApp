@@ -77,6 +77,7 @@ query meInfo{
     //     }
     // },
     computed: {
+      
         getToken() {
             return ApplicationSettings.getString('token');
         },
@@ -86,6 +87,10 @@ query meInfo{
         }
     },
     methods: {
+      onLoaded(){
+        debugger;
+                console.log('page is loaded.')
+            },
        showinfo(){
         debugger;
         console.log(ApplicationSettings.getString('token'));
@@ -97,5 +102,6 @@ query meInfo{
         this.$store.dispatch('lrmasgql/getTopicsInfo');
       }
     },
+   
 }
 </script>

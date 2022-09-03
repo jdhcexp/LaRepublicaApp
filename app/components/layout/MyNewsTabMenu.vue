@@ -4,9 +4,10 @@
         <!-- <button @tap="clearToken()">4567890</button> -->
         <ScrollView orientation="horizontal" height="68" class="enterprise-gral" v-if="getTopics">
             <GridLayout :columns="genCols">
-                <label v-for="(item, index) in me.news.topics" :key="index" :column="index" :text="item.topicName"
-                    class="menu" :class="{ active: selectedItem == index }" textWrap="true"
-                    @tap="changeTopic(index, item)"></label>
+                <label column="0" text="todos" class="menu" :class="{ active: selectedItem == 0 }" textWrap="true" @tap="changeTopic(0, 0)"></label>
+                <label v-for="(item, index) in me.news.topics" :key="index" :column="index+1" :text="item.topicName"
+                    class="menu" :class="{ active: selectedItem == index+1 }" textWrap="true"
+                    @tap="changeTopic(index+1, item.topicId)"></label>
 
             </GridLayout>
         </ScrollView>
@@ -36,7 +37,7 @@ export default {
         return {
             selectedItem: 0,
             me: null,
-            topicId: 12
+            topicId: null
         };
     },
     computed: {
@@ -55,6 +56,9 @@ export default {
             if (this.me == null) {
                 this.me = this.$store.getters['lrmasgql/getTopics']
             }
+            if(this.me != null){
+                this.changeTopic(0,0);
+            }
             return this.me != null
 
         }
@@ -67,10 +71,10 @@ export default {
 
                 console.log(this.me)
             },
-            changeTopic(index, item) {       
-                
+            changeTopic(index, topicId) {       
+                debugger;
                 this.selectedItem = index;
-                this.topicId = item.topicId;
+                this.topicId = topicId;
             },
             clearToken() {
                 debugger;

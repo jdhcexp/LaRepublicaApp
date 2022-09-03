@@ -29,15 +29,22 @@ export default {
       context.commit("saveTopics", (resp.data.me))
     })
   },
-  loadPostsByTopic(context, payload){
-    const response = apolloProv.defaultClient.query({
-      query: lrmasqueries.POSTS_BY_TOPIC_ID,
-      variables() {
-        return{id:parseInt(payload)}
-      }
-    }).then(resp => {
-      debugger;
-      context.commit("saveTopics", (resp.data.me.news.posts))
+  async loadPostsByTopic(context, payload){
+    debugger;
+    return new Promise(function(resolve, reject){
+      const response = apolloProv.defaultClient.query({
+        query: lrmasqueries.POSTS_BY_TOPIC_ID,
+        variables: {
+          id:payload
+        }
+        // variables() {
+        //   return{}
+        // }
+      }).then(resp => {       
+        context.commit("savePostsByTopic", (resp.data.me.news.posts))
+        resolve();
+      })
     })
+    
   }
 }

@@ -10,6 +10,7 @@ query topics{
       topics{
         id
         topicName
+        topicId
       }
     }
   }
@@ -19,12 +20,12 @@ POSTS_BY_TOPIC_ID: gql`
 query postByTopic($id: Int!){
     me{
       news {
-        posts(tagId: 100){
+        posts(tagId: $id){
             id
             header
             title
             principalImage {
-                url(size: $id)
+                url(size: 240)
             }
             urlApp
         }

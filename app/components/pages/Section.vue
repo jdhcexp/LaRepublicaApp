@@ -78,10 +78,8 @@ export default {
         }
     },
     methods: {
-        showInfo() {
-            debugger;
-            console.log(this.section);
-            debugger;
+        showInfo() {            
+            console.log(this.section);            
         }
     },
 };

@@ -8,54 +8,10 @@
 </template>
 
 <script>
-import gql from 'graphql-tag';
-
-const POST_QUERY = gql `
-query Post{
-  post(id: 3389481) {
-    section {
-      id
-      name
-    }
-    header
-    title
-    create        
-    author{
-      id
-      name
-      photo {
-        alt
-        url
-      }      
-    }
-    content(platform: WEB)    
-    attachments{
-      title
-      url
-    }
-    relatedPosts{
-      title
-      id
-      urlApp
-    }
-  }
-}
-`
-
-import { useStore } from 'vuex'
 
 export default {
 
-// apollo:{
-//     post: POST_QUERY
-// },
-// methods:{
-//   getLastNews(){
-//     this.$store.dispatch('lrgql/getLastNews'); 
-//     console.log("ajshbdjas");
-//     console.log(this.$store.getters["lrgql/getHome"]); 
-//   }
-// }
+
 }
 </script>
 

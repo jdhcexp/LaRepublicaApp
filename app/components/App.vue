@@ -24,7 +24,10 @@
     components: {
       DrawerContent,
       Main
-    }
+    },
+    beforeMount() {      
+      this.$store.dispatch('lrgql/loadIndicatorsBar')
+    },
   }
 </script>
 

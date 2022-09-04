@@ -1,9 +1,9 @@
 <template>
     <ScrollView>
       
-      <WrapLayout backgroundColor="#fff" v-if="getPosts">   
+      <WrapLayout backgroundColor="#fff">   
         <!-- <button @tap="showinfo">1212312</button>  -->
-        <button @tap="eraseToken">8979878</button> 
+        <!-- <button @tap="showinfo">8979878</button>  -->
   
         <MainHeadline :opening="first" v-if="getPosts"></MainHeadline>
         <WrapLayout backgroundColor="#fff" v-if="getPosts">
@@ -38,15 +38,16 @@
     computed: {
   
       first() {
-        return this.posts[1];
+        return this.posts[0];
       },
       headLines() {
         debugger;
-        return this.posts.slice(1);
+        return this.posts.slice(0);
       },
       getPosts() {
+        console.log("+++++++++++++++++GETPOST");
         if(this.posts==null){
-          this.posts=this.$store.getters['lrmasgql/getTopicPosts']
+          this.posts=this.$store.getters['lrmasgql/getTopicPosts']          
         }
         return this.posts != null
       }
@@ -55,32 +56,25 @@
         
       showinfo(){
   
-        debugger;
-        this.$store.dispatch('lrmasgql/getTopicPosts');
-        // console.log("info in last news");
-        // console.log(this.home);
+        
+        console.log(this.posts)
+    
       },
       eraseToken(){
-        debugger;
+    
         ApplicationSettings.setString("token","");
       }
     },
     watch: {
         topicId:function(newVal, oldVal){
-            console.log("newval: "+newVal+" oldval: "+oldVal);
-            // await this.$store.dispatch('lrmasgql/loadPostsByTopic',newVal);
-            // this.posts=this.$store.getters['lrmasgql/getTopicPosts'];
+            console.log("---------------------------whtcher")
             this.$store.dispatch('lrmasgql/loadPostsByTopic',newVal).then(() => {
-                console.log("changegvshdjasdjahbhsja")
-                debugger;
+               
                 this.posts=this.$store.getters['lrmasgql/getTopicPosts']
+                
             })
         }
-    }
-    // loaded(args) {
-    //         console.log('loaded from page 2')
-    // },
-   
+    }  
    
   }
  

@@ -1,6 +1,7 @@
 <template>
   <Page class="page">
     <ScrollView>
+      <label :text="postId"></label>
       <GridLayout rows="250 1000" v-if="post">
         <WrapLayout row="0" backgroundColor="#fff">
           <Label :text="post.header" class="category" />
@@ -8,12 +9,12 @@
             <Image :src="post.principalImage.url" top="55" class="img-ppal" />
             <StackLayout class="titular-box">
               <label :text="post.title" class="titular-ppal" textWrap="true" />
-              <!-- <label :text="opening.id" class="titular-ppal" textWrap="true" /> -->
+              
             </StackLayout>
           </AbsoluteLayout>
         </WrapLayout>
 
-        <!-- <label row="0" text="priuba"></label> -->
+        
         <WebView row="1" :src="post.content" height="1000"/>
       </GridLayout>
 

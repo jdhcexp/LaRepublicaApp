@@ -43,10 +43,8 @@ export default {
         analysis: GUESTS_QUERY
     },
     methods: {
-        showInfo() {
-            debugger;
-            console.log(this.analysis);
-            debugger;
+        showInfo() {            
+            console.log(this.analysis);            
         }
     },
 }

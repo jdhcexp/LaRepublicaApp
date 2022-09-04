@@ -10,7 +10,7 @@
 
 <script>
 export default {
-    prop:['indId'],
+    prop:['indId','type'],
     data() {
         return {
             title: "description",
@@ -28,7 +28,8 @@ export default {
     methods: {
     onNavigationButtonTap() {
     //   Frame.topmost().goBack();
-    },
+    }
+   
   },
 }
 </script>

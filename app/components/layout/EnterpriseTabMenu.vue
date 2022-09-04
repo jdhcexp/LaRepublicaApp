@@ -4,7 +4,7 @@
 			<GridLayout columns="auto auto auto">
 				<label column="0" text="Noticias" class="menu" :class="{active: selectedItem == 0}" textWrap="true" @tap="selectedItem = 0"></label>
 				<label column="1" text="Nuevo en la oficina" class="menu" :class="{active: selectedItem == 1}" textWrap="true" @tap="selectedItem = 1"></label>
-				<label column="2" text="Indicadores" class="menu" :class="{active: selectedItem == 2}" textWrap="true" @tap="selectedItem = 2"></label>
+				<!-- <label column="2" text="Indicadores" class="menu" :class="{active: selectedItem == 2}" textWrap="true" @tap="selectedItem = 2"></label> -->
 				<!-- <label column="3" text="Todos" class="enterprise-menu" textWrap="true"></label>
 				<label column="4" text="Comment LR" class="enterprise-menu" textWrap="true"></label>
 				<label column="5" text="Datos cocteleros" class="enterprise-menu" textWrap="true"></label>

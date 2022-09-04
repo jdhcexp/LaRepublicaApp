@@ -4,18 +4,19 @@
         <!-- <button @tap="clearToken()">4567890</button> -->
         <ScrollView orientation="horizontal" height="68" class="enterprise-gral" v-if="getTopics">
             <GridLayout :columns="genCols">
-                <label column="0" text="todos" class="menu" :class="{ active: selectedItem == 0 }" textWrap="true" @tap="changeTopic(0, 0)"></label>
-                <label v-for="(item, index) in me.news.topics" :key="index" :column="index+1" :text="item.topicName"
-                    class="menu" :class="{ active: selectedItem == index+1 }" textWrap="true"
-                    @tap="changeTopic(index+1, item.topicId)"></label>
+                <label column="0" text="todos" class="menu" :class="{ active: selectedItem == 0 }" textWrap="true"
+                    @tap="changeTopic(0, 0)"></label>
+                <label v-for="(item, index) in me.news.topics" :key="index" :column="index + 1" :text="item.topicName"
+                    class="menu" :class="{ active: selectedItem == index + 1 }" textWrap="true"
+                    @tap="changeTopic(index + 1, item.topicId)"></label>
 
             </GridLayout>
         </ScrollView>
 
         <GridLayout>
-        
+
             <MyNewsTopicSection :topicId="topicId"></MyNewsTopicSection>
-        
+
 
         </GridLayout>
     </StackLayout>
@@ -25,14 +26,12 @@
 <script>
 
 import { ApplicationSettings } from '@nativescript/core';
-import Section from '../pages/Section.vue';
 import MyNewsTopicSection from '../pages/LRmas/MyNewsTopicSection.vue';
 
 export default {
-    components: {
-    Section,
-    MyNewsTopicSection
-},
+    components: {        
+        MyNewsTopicSection
+    },
     data() {
         return {
             selectedItem: 0,
@@ -56,44 +55,28 @@ export default {
             if (this.me == null) {
                 this.me = this.$store.getters['lrmasgql/getTopics']
             }
-            if(this.me != null){
-                this.changeTopic(0,0);
+            if (this.me != null) {
+                this.changeTopic(0, 0);
             }
             return this.me != null
 
         }
     },
-        methods: {
-            showTopics() {
-                debugger;
-
-                this.me = this.$store.getters['lrmasgql/getTopics']
-
-                console.log(this.me)
-            },
-            changeTopic(index, topicId) {       
-                debugger;
-                this.selectedItem = index;
-                this.topicId = topicId;
-            },
-            clearToken() {
-                debugger;
-                ApplicationSettings.setString("token", "")
-            }
-
-
+    methods: {
+        showTopics() {
+            this.me = this.$store.getters['lrmasgql/getTopics']
         },
-        // async beforeMount() {
-        //     debugger;    
-        //     console.log("beforeCRwte")
-        //     this.$store.dispatch('lrmasgql/getTopicsInfo');
+        changeTopic(index, topicId) {
+            this.selectedItem = index;
+            this.topicId = topicId;
+        },
+        clearToken() {
+            ApplicationSettings.setString("token", "")
+        }
 
-        // },
-        // beforeMount() {
-        //     console.log("beforemount event fired in mynewstab");
 
-        // },
     }
+}
 
 </script>
 

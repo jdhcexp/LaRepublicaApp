@@ -5,19 +5,22 @@
                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="INDICADORES" class="item"></Label>
                 </MDTabStripItem>
+                
                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="ACCIONES" class="item"></Label>
                 </MDTabStripItem>               
             </MDTabStrip>
             <MDTabContentItem>
-                <GridLayout>
-                    <IndicatorsPage></IndicatorsPage>                
+                <GridLayout rows="*,auto">
+                    <IndicatorsSubTabMenu row="0"></IndicatorsSubTabMenu>                    
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
+            
             <MDTabContentItem>
-                <GridLayout>
-                    <Label text="acciones" class="h2 text-center">
-                    </Label>
+                <GridLayout rows="*,auto">
+                    <StockPage row="0"></StockPage>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
            
@@ -26,12 +29,19 @@
 </template>
 
 <script>
-import IndicatorsPage from "../pages/IndicatorsPage.vue";
+
+import IndicatorsBar from "./IndicatorsBar.vue";
+import IndicatorsSubTabMenu from "./IndicatorsSubTabMenu.vue";
+import StockPage from "../pages/StockPage.vue";
 
 export default{
     components:{
-        IndicatorsPage
-    }
+    
+    IndicatorsBar,
+    IndicatorsSubTabMenu,
+    StockPage
+}
+
 }
 
 </script>

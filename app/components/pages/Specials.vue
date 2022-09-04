@@ -1,10 +1,10 @@
 <template>
-<ScrollView>
-   <button @tap="showInfo">qwertyui</button>
+  <ScrollView>
+    <button @tap="showInfo">qwertyui</button>
     <StackLayout v-if="specials && specials.length > 0">
       <SpecialHeadline v-for="item in specials" :key="item.id" :headline="item"></SpecialHeadline>
     </StackLayout>
-</ScrollView>
+  </ScrollView>
 </template>
 
 <script>
@@ -31,17 +31,15 @@ query specialsList{
 `
 
 export default {
-    apollo: {
-        specials: SPECIALS_QUERY,
-    },
-     methods: {
-        showInfo() {
-            debugger;
-            console.log(this.specials);
-            debugger;
-        }
-    },
-    components: { SpecialHeadline }
+  apollo: {
+    specials: SPECIALS_QUERY,
+  },
+  methods: {
+    showInfo() {
+      console.log(this.specials);
+    }
+  },
+  components: { SpecialHeadline }
 }
 
 </script>

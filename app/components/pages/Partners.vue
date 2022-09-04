@@ -30,10 +30,8 @@ export default{
         partners: PARTNERS_QUERY,
     },
     methods: {
-        showInfo() {
-            debugger;
-            console.log(this.partners);
-            debugger;
+        showInfo() {            
+            console.log(this.partners);            
         }
     },
     components: { PartnerHeadline }

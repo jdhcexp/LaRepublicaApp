@@ -57,21 +57,22 @@
 </template>
 
 <script>
+     import MainTabMenu from '../layout/MainTabMenu'
 import ConfigTabMenu from './ConfigTabMenu.vue';
-    import MainTabMenu from '../layout/MainTabMenu'
-//     import post1 from '../pages/test/post1.vue';
+   
+
     import TestTabMenu from './TestTabMenu.vue';
 import IndicatorsTabMenu from './IndicatorsTabMenu.vue';
-import Indicator from '../modules/posts/Indicator.vue';
+
 import Post1 from '../pages/test/post1.vue';
     export default {
         components: {
     MainTabMenu,
     ConfigTabMenu,
-    // post1,
+   
     TestTabMenu,
     IndicatorsTabMenu,
-    Indicator,
+    
     Post1
 },
         data() {

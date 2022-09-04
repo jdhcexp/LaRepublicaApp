@@ -37,62 +37,61 @@
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <LastNews row="0"></LastNews>
-                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
-                <!-- <button @tap="showInfo">show info</button> -->
                 <GridLayout rows="*,auto">
                     <MyNews row="0"></MyNews>
-                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <Trends row="0"></Trends>
-                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <Agencies row="0"></Agencies>
-                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <EnterpriseTabMenu row="0"></EnterpriseTabMenu>
-                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <AnalysisTabMenu></AnalysisTabMenu>
-                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <Section sect="12" row="0"></Section>
-                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <VideosTabMenu row="0"></VideosTabMenu>
-                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <Specials row="0"></Specials>
-                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <Partners row="0"></Partners>
-                    <IndicatorsBar row="1" :banner="banner"></IndicatorsBar>
+                    <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
         </MDTabs>
@@ -105,7 +104,6 @@
 </template>
 
 <script>
-import gql from 'graphql-tag';
 
 import LastNews from "../pages/LastNews.vue";
 import Trends from "../pages/Trends";
@@ -119,18 +117,7 @@ import Partners from "../pages/Partners.vue";
 import MyNews from "../pages/LRmas/MyNews.vue";
 import IndicatorsBar from '../layout/IndicatorsBar.vue'
 
-const INDICATORS_BAR_QUERY = gql`
-query bar{
-  banner{
-    name
-    quoteValue {
-      value
-      percentageVariation
-      variationType
-    }
-  }
-}
-`
+
 
 export default {
     components: {
@@ -143,20 +130,10 @@ export default {
         VideosTabMenu,
         Specials,
         Partners,
-        MyNews, IndicatorsBar
+        MyNews, 
+        IndicatorsBar
     },
-    apollo: {
-        $client: 'marketClient',
-        banner: INDICATORS_BAR_QUERY
-    },  
-    data() {
-        return {};
-    },
-methods:{
-    showInfo(){
-        console.log(this.banner);
-    }
-}
+
 };
 </script>
 

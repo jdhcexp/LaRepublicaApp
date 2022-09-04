@@ -1,12 +1,12 @@
 <template>
-    <ScrollView>        
-        
-        <StackLayout v-if="videos && videos.posts">
-        <label>{{showId}}</label>
-           <VideoMainHeadline :headline="videos.posts[0]"></VideoMainHeadline>
-           <VideoHeadline v-for="(item, index) in videos.posts.slice(1,20)" :key="index" :headline="item"></VideoHeadline>
-        </StackLayout>
-    </ScrollView>
+  <ScrollView>
+
+    <StackLayout v-if="videos && videos.posts">
+      <label>{{ showId }}</label>
+      <VideoMainHeadline :headline="videos.posts[0]"></VideoMainHeadline>
+      <VideoHeadline v-for="(item, index) in videos.posts.slice(1, 20)" :key="index" :headline="item"></VideoHeadline>
+    </StackLayout>
+  </ScrollView>
 </template>
 
 <script>
@@ -35,23 +35,21 @@ query videoposts($showId: Int!){
 
 
 export default {
-    props: ["showId"],
-    apollo: {
-        videos: {
-            query: VIDEOS_QUERY,
-            
-            variables() {
-                return { showId: parseInt(this.showId) };
-            }
-        }
-    },
-    methods: {
-        showInfo() {
-            debugger;
-            console.log(this.videos);
-            debugger;
-        }
-    },
-    components: { VideoMainHeadline, VideoHeadline }
+  props: ["showId"],
+  apollo: {
+    videos: {
+      query: VIDEOS_QUERY,
+
+      variables() {
+        return { showId: parseInt(this.showId) };
+      }
+    }
+  },
+  methods: {
+    showInfo() {
+      console.log(this.videos);
+    }
+  },
+  components: { VideoMainHeadline, VideoHeadline }
 }
 </script>

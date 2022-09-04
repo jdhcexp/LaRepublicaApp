@@ -25,7 +25,8 @@ export default {
     const response = apolloProv.defaultClient.query({
       query: lrmasqueries.ME_QUERY_T,
     }).then(resp => {
-      debugger;
+    
+    
       context.commit("saveTopics", (resp.data.me))
     })
   },
@@ -40,8 +41,10 @@ export default {
         // variables() {
         //   return{}
         // }
-      }).then(resp => {       
-        context.commit("savePostsByTopic", (resp.data.me.news.posts))
+      }).then(resp => {      
+        console.log("////////////////RESP POST BY TOPICS");
+        console.log(resp);
+        context.commit("savePostsByTopic", (resp.data.me.news.posts));
         resolve();
       })
     })

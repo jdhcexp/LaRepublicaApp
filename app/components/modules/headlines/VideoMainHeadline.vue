@@ -38,8 +38,7 @@ export default {
         return {};
     },
     methods: {
-        showInfo() {
-            debugger;
+        showInfo() {            
             console.log(this.headline);
         }
     },

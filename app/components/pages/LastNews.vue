@@ -4,11 +4,11 @@
     <WrapLayout backgroundColor="#fff" v-if="getHome">   
       <!-- <button @tap="showinfo">1212312</button>  -->
       <button @tap="eraseToken">8979878</button> 
-
+      <label :text="getToken"></label>
       <MainHeadline :opening="first" v-if="home && home.opening && home.opening.length > 0"></MainHeadline>
       <WrapLayout backgroundColor="#fff" v-if="home && home.opening && home.opening.length > 0">
         <StandardHeadline v-for="hl in headLines" :key="hl.id" :headLine="hl"></StandardHeadline>
-        <label v-for="hl in headLines" :key="hl.id">{{ hl.id }}</label>
+        <!-- <label v-for="hl in headLines" :key="hl.id">{{ hl.id }}</label> -->
       </WrapLayout>
     </WrapLayout>
   </ScrollView>
@@ -63,7 +63,9 @@ export default {
     }
   },
   computed: {
-
+    getToken() {
+          return ApplicationSettings.getString('token');
+        },
     first() {
       return this.home.opening[0];
     },
@@ -84,18 +86,15 @@ export default {
 
       debugger;
       this.$store.dispatch('lrmasgql/getMeInfo');
-      // console.log("info in last news");
-      // console.log(this.home);
+ 
     },
     eraseToken(){
       debugger;
       ApplicationSettings.setString("token","");
     }
   },
-  async beforeMount() {
-    console.log("beforeMount")
-    this.$store.dispatch('lrgql/getLastNews');
-    debugger;
+  async beforeMount() {    
+    this.$store.dispatch('lrgql/getLastNews');    
   }
 
 

@@ -66,10 +66,8 @@ export default {
         };
     },
     methods: {
-        showInfo() {
-            debugger;
-            console.log(this.videos);
-            debugger;
+        showInfo() {            
+            console.log(this.videos);            
         }
     },
     mounted() {

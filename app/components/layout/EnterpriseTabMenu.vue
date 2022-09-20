@@ -14,7 +14,7 @@
 			</GridLayout>
 		</ScrollView>
 		<GridLayout>
-			<Section v-if="selectedItem == 0" sect="5"></Section>
+			<Section v-if="selectedItem == 0" :req="request"></Section>
 			<NewInOffice v-if="selectedItem == 1"></NewInOffice>
 			<IndicatorsPage v-if="selectedItem == 2"></IndicatorsPage>
 		</GridLayout>
@@ -36,6 +36,14 @@ export default {
       selectedItem: 0,
     };
   },
+  computed:{
+	request(){
+		return {
+			id:5,
+			type:"SECTION"
+		}
+	}
+  }
 };
 </script>
 

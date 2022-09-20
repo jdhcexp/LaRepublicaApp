@@ -41,11 +41,11 @@
         return this.posts[0];
       },
       headLines() {
-        debugger;
+        
         return this.posts.slice(0);
       },
       getPosts() {
-        console.log("+++++++++++++++++GETPOST");
+        
         if(this.posts==null){
           this.posts=this.$store.getters['lrmasgql/getTopicPosts']          
         }
@@ -67,7 +67,7 @@
     },
     watch: {
         topicId:function(newVal, oldVal){
-            console.log("---------------------------whtcher")
+            
             this.$store.dispatch('lrmasgql/loadPostsByTopic',newVal).then(() => {
                
                 this.posts=this.$store.getters['lrmasgql/getTopicPosts']

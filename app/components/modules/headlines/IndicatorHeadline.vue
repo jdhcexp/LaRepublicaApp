@@ -40,23 +40,22 @@ export default {
             }
         },
         onNavigationItemTap(id) {
-        console.log(this.quote);
-        this.$navigateTo(Indicator, {
-            transition: {
-                name: "slideLeft",
-                duration: 100,
-                curve: "easeIn"
-            },
-            props: {
-                indId: id,
-                type: "quote"
+            this.$navigateTo(Indicator, {
+                transition: {
+                    name: "slideLeft",
+                    duration: 100,
+                    curve: "easeIn"
+                },
+                props: {
+                    indId: this.quote.id,
+                    type: this.quote.quoteType
+                }
             }
+            );
+            // utils.closeDrawer();
         }
-        );
-        // utils.closeDrawer();
-    }
     },
-    
+
 
 }
 </script>

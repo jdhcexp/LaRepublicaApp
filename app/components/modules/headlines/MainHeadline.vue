@@ -41,11 +41,11 @@ export default {
         return {};
     },
     methods: {
-        showInfo() {
-            debugger;
+        showInfo() {       
             console.log(this.opening);
         },
         onNavigationItemTap(id) {
+            debugger;
             this.$navigateTo(StandardPost, {
                 transition: {
                     name: "slideLeft",
@@ -56,7 +56,7 @@ export default {
                     postId: id
                 }
             }
-            );
+            ).catch(error => console.log(error));
             // utils.closeDrawer();
         }
 

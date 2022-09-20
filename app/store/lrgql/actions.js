@@ -41,6 +41,16 @@ export default {
       context.commit("saveHome", (resp.data.home))
     })
   },
+  async loadCatsMenu(context) {
+    return new Promise((resolve, reject) => {
+      apolloProv.defaultClient.query({
+        query: lrqueries.CATS_MENU_QUERY
+      }).then(resp => {      
+        context.commit("saveCatsMenu", resp.data.menu);
+        resolve();
+      })
+    })
+  },
   async loadIndicatorsBar(context) {
     return new Promise((resolve, reject) => {
       apolloProv.clients.marketClient.query({
@@ -53,7 +63,7 @@ export default {
   },
   async loadIndicatorsByMacro(context, payload) {
     return new Promise((resolve, reject) => {
-      console.log(payload);      
+        
       const q = payload == null ? lrqueries.INDICATORS_QUERY : lrqueries.INDICATORS_QUERY_CAT;
       apolloProv.clients.marketClient.query({
         query: q,
@@ -61,8 +71,7 @@ export default {
           cat: payload
         }
       }).then(resp => {
-        console.log("$$$$$$$$$$$$$$$$$$$$LoadIndByMacro");
-        console.log(resp);
+     
         context.commit("saveIndicators", (resp.data.quotes));
         resolve();
       })
@@ -80,20 +89,93 @@ export default {
   },
   async loadIndicatorDetail(context, payload) {
     return new Promise((resolve, reject) => {
+      
+
       apolloProv.clients.marketClient.query({
         query: lrqueries.INDICATOR_DETAIL_QUERY,
         variables: {
           id: payload.id,
-          quote: payload.quote,
+          quote: payload.type,
           from: payload.from,
           to: payload.to,
           take: payload.take
         }
       }).then(resp => {
+       
         context.commit("saveIndicatorDetail", (resp.data.byIds));
+
+        resolve();
+      })
+    })
+  },
+  async loadSectionTag(context, payload) {
+    return new Promise((resolve, reject) => {
+      console.log("!!!!!!!!!!!!!!!!!!")
+      console.log(payload);
+      const q = payload.type == "SECTION" ? lrqueries.SECTION_QUERY : lrqueries.TAG_QUERY;
+      apolloProv.defaultClient.query({
+        query: q,
+        variables: {
+          id: parseInt(payload.id)
+
+        }
+      }).then(resp => {     
+        console.log("!!!!!!!!!!!!!!!!!!")
+        console.log(resp);
+        const respToSave = payload.type == "SECTION" ? resp.data.section : resp.data.tag
+        context.commit("saveSection", respToSave);
+        resolve();
+      })
+    })
+  },
+  async loadStandardPost(context, payload) {
+    return new Promise((resolve, reject) => {      
+      const q = lrqueries.STANDARD_POST_QUERY
+      apolloProv.defaultClient.query({
+        query: q,
+        variables: {
+          id: parseInt(payload)
+
+        }
+      }).then(resp => {    
+        context.commit("saveStandardPost", resp.data.post);
+        resolve();
+      })
+    })
+  },
+  async loadSearch(context, payload){
+    return new Promise((resolve, reject) => {
+      const q = lrqueries.SEARCH_QUERY;
+      apolloProv.defaultClient.query({
+        query: q,
+        variables: {
+          req: payload
+        }
+      }).then(resp => {
+        context.commit("saveSearch", resp.data.search)
+        resolve();
+      })
+    })
+  },
+  async loadSearchFacets(context, payload){
+    return new Promise((resolve, reject) => {
+      const q = lrqueries.SEARCH_FACETS_QUERY;
+      apolloProv.defaultClient.query({
+        query: q,
+        variables: {
+          req: payload
+        }
+      }).then(resp => {
+        context.commit("saveSearchFacets", resp.data.searchFacets)
         resolve();
       })
     })
   }
 
 }
+
+// const QuoteTypeEnum= {
+//   QUOTE: "QUOTE",
+//   BVC: "BVC",
+//   SPOT: "SPOT"
+// }

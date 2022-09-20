@@ -21,7 +21,7 @@
           
         </SegmentedBar> -->
         <GridLayout v-if="videosExist">
-            <Videos showId="0" v-if="selectedItem == 0"></Videos>
+            <Videos v-if="selectedItem == 0"></Videos>
             <Videos v-if="selectedItem == index + 1" v-for="(item, index) in shows" :key="item.id" :showId="item.id">
             </Videos>
             <!-- <Editorial v-if="selectedItem == 0"></Editorial>

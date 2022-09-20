@@ -29,7 +29,7 @@ apollo:{
 },
 methods: {
   showInfo(){
-    debugger;
+    
     console.log(this.books)
   }
 },

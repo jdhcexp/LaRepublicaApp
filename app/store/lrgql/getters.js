@@ -2,6 +2,9 @@ export default {
   getHome(state) {
     return state.home
   },
+  getCatsMenu(state) {
+    return state.catsMenu
+  },
   getBanner(state) {
     return state.banner
   },
@@ -11,7 +14,26 @@ export default {
   getIndCatTypes(state) {
     return state.indCatTypes
   },
-  getStockMarket(state){
+  getStockMarket(state) {
     return state.stockMarket
+  },
+  getIndicatorDetail(state) {
+    return state.indicatorDetail
+  },
+  getQuoteTypeEnum(state) {
+    return state.QuoteTypeEnum
+  },
+  getSectionInfo(state) {
+    return state.sectionInfo
+  },
+  getStandardPost(state) {
+    return state.standardPost
+  },
+  getSearchResponse(state) {
+    return state.searchResponse
+  },
+  getSearchFacets(state) {
+    return state.searchFacets;
   }
+
 }

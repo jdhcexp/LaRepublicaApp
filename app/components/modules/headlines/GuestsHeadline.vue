@@ -12,10 +12,27 @@
 </template>
 
 <script>
+    import StandardPost from '../posts/StandardPost.vue';
 export default {
 props: {
         headLine: {
             type: Object
+        }
+    },
+    methods: {
+        onNavigationItemTap(id) {
+            debugger;
+            this.$navigateTo(StandardPost, {
+                transition: {
+                    name: "slideLeft",
+                    duration: 100,
+                    curve: "easeIn"
+                },
+                props: {
+                    postId: id
+                }
+            }
+            );
         }
     },
 }

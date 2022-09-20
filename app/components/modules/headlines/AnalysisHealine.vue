@@ -3,7 +3,7 @@
     <StackLayout>
     <Image :src="headLine.author[0].photo.url" class="thumbnail-analyst" />
     </StackLayout>
-    <StackLayout>
+    <StackLayout @tap="onNavigationItemTap(headLine.id)">
         <Label :text="headLine.title" class="analysis-title" textWrap="true" />
         <Label :text="headLine.author[0].name" class="analysis-name" textWrap="true" />
         <label :text="headLine.author[0].position" textWrap="true" class="analysis-job" />
@@ -12,10 +12,27 @@
 </template>
 
 <script>
+    import StandardPost from '../posts/StandardPost.vue';
 export default {
 props: {
         headLine: {
             type: Object
+        }
+    },
+    methods: {
+        onNavigationItemTap(id) {
+            debugger;
+            this.$navigateTo(StandardPost, {
+                transition: {
+                    name: "slideLeft",
+                    duration: 100,
+                    curve: "easeIn"
+                },
+                props: {
+                    postId: id
+                }
+            }
+            );
         }
     },
 }

@@ -32,5 +32,42 @@ query postByTopic($id: Int!){
       }
     }
   }
+`,
+DIGITAL_VERSION: gql`
+query digital{
+  digitalVersion {
+    items {
+      id
+      cover
+      path
+    }
+  }
+}
+`,
+BOOKS_MEDIATYPES: gql`
+query mediaTypes{
+  books {
+    mediaTypes{
+      key
+      slug
+      count
+    }
+  }
+}
+`,
+BOOKS: gql`
+query books($mediaType: String){
+  books{
+    search(mediaType: $mediaType){
+      id
+      items{
+        thumbnail
+        cover
+        isInternal
+      }
+      total
+    }  
+  }
+}
 `
 }

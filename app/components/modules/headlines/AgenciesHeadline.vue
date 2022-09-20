@@ -1,10 +1,11 @@
 <template>
 <StackLayout>
     <StackLayout orientation="horizontal" class="content-news">
-        <Image :src="headLine.image.url" class="thumbnail" />
+        <!-- <button @tap="showinfo">3456789</button> -->
+        <Image :src="headLine.image.url" class="thumbnail" v-if="headLine.image" />
         <StackLayout>
             <Label :text="headLine.header" class="category category-thumb" />
-            <label :text="headLine.title" textWrap="true" class="text-thumb" />
+            <label :text="headLine.title" textWrap="true" class="text-thumb"/>
         </StackLayout>
     </StackLayout>
     <StackLayout orientation="horizontal" class="agency-foot">
@@ -14,16 +15,36 @@
                 <Label :text="headLine.companyName" class="company"></Label>
             </FormattedString>
         </Label>
-        <Label :text="headLine.agency.name" class="agency-right" />
+        <Label :text="headLine.agency.name" class="agency-right" v-if="headLine.agency" />
     </StackLayout>
 </StackLayout>
 </template>
 
 <script>
+    import StandardPost from '../posts/StandardPost.vue';
 export default {
     props: {
         headLine: {
             type: Object
+        }
+    },
+    methods:{
+        showinfo(){
+            console.log(this.headLine);
+        },
+        onNavigationItemTap(id) {
+            debugger;
+            this.$navigateTo(StandardPost, {
+                transition: {
+                    name: "slideLeft",
+                    duration: 100,
+                    curve: "easeIn"
+                },
+                props: {
+                    postId: id
+                }
+            }
+            );
         }
     },
     data() {

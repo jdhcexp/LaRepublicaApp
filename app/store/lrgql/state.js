@@ -4,7 +4,11 @@ export default {
   indicators: null,
   stockMarket: null,
   indicatorDetail: null,
-
+  catsMenu: null,
+  sectionInfo:null,
+  standardPost: null,
+  searchResponse: null,
+  searchFacets: null,
   //ENUMS
   indCatTypes: {
     COMMODITIES: "COMMODITIES",

@@ -31,7 +31,7 @@ export default {
     },   
     watch: {
         type: function (newVal, oldVal) {
-            debugger;
+            
             switch (newVal) {
                 case 0:
                     this.cat = null;
@@ -56,10 +56,8 @@ export default {
             });
         }
     },
-    beforeMount() {
-        console.log("/////////////////////beforemount indicators page");
-        this.catTypes = this.$store.getters["lrgql/getIndCatTypes"];
-        console.log(this.catTypes);
+    beforeMount() {     
+        this.catTypes = this.$store.getters["lrgql/getIndCatTypes"];      
         this.$store.dispatch("lrgql/loadIndicatorsByMacro");
     },
     components: { IndicatorHeadline }

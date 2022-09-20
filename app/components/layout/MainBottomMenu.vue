@@ -1,4 +1,5 @@
 <template>
+    
     <StackLayout>
         <MDBottomNavigation selectedIndex="0">
             <MDTabStrip backgroundColor="#fff" class="menu">
@@ -38,8 +39,7 @@
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout>
-                    <Label text="LRMAS" class="h2 text-center">
-                    </Label>
+                    <LRmasTabMenu></LRmasTabMenu>
                 </GridLayout>
                 </MDTabContentItem>
                  <MDTabContentItem>
@@ -65,15 +65,17 @@ import ConfigTabMenu from './ConfigTabMenu.vue';
 import IndicatorsTabMenu from './IndicatorsTabMenu.vue';
 
 import Post1 from '../pages/test/post1.vue';
+import LRMas from '../pages/LRmas/LRMas.vue';
+import LRmasTabMenu from './LRmasTabMenu.vue';
     export default {
         components: {
     MainTabMenu,
     ConfigTabMenu,
-   
     TestTabMenu,
     IndicatorsTabMenu,
-    
-    Post1
+    Post1,
+    LRMas,
+    LRmasTabMenu
 },
         data() {
             return {};

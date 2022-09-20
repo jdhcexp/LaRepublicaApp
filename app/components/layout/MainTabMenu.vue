@@ -1,7 +1,7 @@
 <template>
 
     <StackLayout>
-        <MDTabs selectedIndex="0" height="100%">
+        <MDTabs selectedIndex="0" height="100%" v-if="categories.length>0" horizontalAlignment="left">
             <MDTabStrip>
                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="ÚLTIMAS NOTICIAS" class="item"></Label>
@@ -15,9 +15,9 @@
                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="CENTRAL DE AGENCIAS" class="item"></Label>
                 </MDTabStripItem>
-                <MDTabStripItem backgroundColor="#fff" class="menu">
+                <!-- <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="EMPRESAS" class="item"></Label>
-                </MDTabStripItem>
+                </MDTabStripItem> -->
                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="ANÁLISIS" class="item"></Label>
                 </MDTabStripItem>
@@ -27,12 +27,15 @@
                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="VIDEOS" class="item"></Label>
                 </MDTabStripItem>
-                <MDTabStripItem backgroundColor="#fff" class="menu">
+                <MDTabStripItem backgroundColor="#fff" class="menu" v-for="(item, index) in categories" :key="index">
+                    <label :text="item.name" class="item"></label>
+                </MDTabStripItem>
+                <!-- <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="ESPECIALES" class="item"></Label>
                 </MDTabStripItem>
                 <MDTabStripItem backgroundColor="#fff" class="menu">
-                    <Label text="COMUNIDAD EMPRESARIAL" class="item"></Label>
-                </MDTabStripItem>
+                    <Label text="COMUNIDAD EMPRESARIAL" class="item"></Label> 
+                </MDTabStripItem>-->
             </MDTabStrip>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
@@ -58,12 +61,12 @@
                     <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
-            <MDTabContentItem>
+            <!-- <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <EnterpriseTabMenu row="0"></EnterpriseTabMenu>
                     <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
-            </MDTabContentItem>
+            </MDTabContentItem> -->
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <AnalysisTabMenu></AnalysisTabMenu>
@@ -72,7 +75,7 @@
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
-                    <Section sect="12" row="0"></Section>
+                    <Section :req="{'id':12, 'type':'SECTION'}" row="0"></Section>
                     <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
@@ -82,18 +85,19 @@
                     <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
-            <MDTabContentItem>
+            <MDTabContentItem v-for="(item, index) in categories" :key="index">
                 <GridLayout rows="*,auto">
-                    <Specials row="0"></Specials>
+                    <!-- <label :text="item.id+' type '+item.itemEnum"></label> -->
+                    <Section row="0" :req="getRequest(item)"></Section>
                     <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
-            <MDTabContentItem>
+            <!--<MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <Partners row="0"></Partners>
                     <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
-            </MDTabContentItem>
+            </MDTabContentItem> -->
         </MDTabs>
     </StackLayout>
 
@@ -130,8 +134,28 @@ export default {
         VideosTabMenu,
         Specials,
         Partners,
-        MyNews, 
+        MyNews,
         IndicatorsBar
+    },
+    data() {
+        return {
+            categories: []
+        }
+    },
+    methods: {
+        getRequest(item) {
+            return {
+                id: item.id,
+                type: item.itemEnum
+            }
+        }
+    },
+    beforeMount() {
+        this.$store.dispatch('lrgql/loadCatsMenu').then(() => {
+            this.categories = this.$store.getters['lrgql/getCatsMenu'];
+
+
+        })
     },
 
 };

@@ -12,6 +12,7 @@
 <script>
   import DrawerContent from './layout/DrawerContent'
   import Main from './layout/Main'
+  import Search from './pages/Search';
   import { SlideInOnTopTransition } from 'nativescript-ui-sidedrawer';
 
   export default {
@@ -23,10 +24,12 @@
 
     components: {
       DrawerContent,
-      Main
+      Main,
+      Search
     },
     beforeMount() {      
       this.$store.dispatch('lrgql/loadIndicatorsBar')
+      
     },
   }
 </script>

@@ -21,5 +21,10 @@ export default {
       }
   });
    
+  },
+
+  chargeToken(context){    
+      context.commit('saveToken', ApplicationSettings.getString("token",""));    
   }
+
 }

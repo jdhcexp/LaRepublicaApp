@@ -1,7 +1,7 @@
 <template>
     <WrapLayout backgroundColor="#fff" v-if="headline">
         <!-- <Label :text="opening.header" class="category" /> -->
-         <button @tap="showInfo">qwertyui</button>
+         <!-- <button @tap="showInfo">qwertyui</button> -->
         <AbsoluteLayout backgroundColor="#fff">          
             <Image :src="headline.youtubeThumb" top="0" class="img-ppal" />
             <StackLayout class="box-play">

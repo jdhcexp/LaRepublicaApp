@@ -1,4 +1,7 @@
 export default {
   topics: null,
-  postsByTopic: null
+  postsByTopic: null,
+  digitalVersions:null,
+  mediaTypes:null,
+  books:null,
 }

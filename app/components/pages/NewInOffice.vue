@@ -39,9 +39,9 @@ export default {
     },
      methods: {
         showInfo() {
-            debugger;
+            
             console.log(this.newInTheOffice);
-            debugger;
+            
         }
     },
 };

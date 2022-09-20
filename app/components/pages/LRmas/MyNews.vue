@@ -3,7 +3,7 @@
 
     <StackLayout>
 
-      <login-module v-if="!checktok"></login-module>
+      <login-module v-if="!checktok" type="news"></login-module>
     </StackLayout>
 
     <MyNewsTabMenu v-if="checktok"></MyNewsTabMenu>
@@ -28,9 +28,10 @@ export default {
   computed: {
 
     getToken() {
-      return ApplicationSettings.getString('token');
+      return this.$store.getters["auth/getToken"]
     },
     checktok() {
+    
       return this.getToken != '';
     }
   },
@@ -41,10 +42,17 @@ export default {
   },
   components: { LoginModule, MyNewsTabMenu },
   beforeMount() {
+    
+    this.$store.dispatch('auth/chargeToken');
     if (this.checktok) {
       this.$store.dispatch('lrmasgql/getTopicsInfo');
     }
   },
+  watch:{
+    getToken (newVal, oldVal) {    
+      this.$store.dispatch('lrmasgql/getTopicsInfo');
+    }
+  }
 
 }
 </script>

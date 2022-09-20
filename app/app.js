@@ -10,6 +10,7 @@ import authStore from './store/auth/index';
 import lrgql from './store/lrgql';
 
 
+
 import { ApplicationSettings } from '@nativescript/core';
 
 import RadChart from 'nativescript-ui-chart/vue';
@@ -25,7 +26,7 @@ Vue.use(VueApollo);
 Vue.use(Vuex);
 Vue.use(NSVueLifecycleHooks)
 // Vue.use(authStore);
-
+Vue.registerElement('PDFView', () => require('nativescript-pdf-view').PDFView)
 
 import App from './components/App'
 import { RadCartesianChart } from 'nativescript-ui-chart';

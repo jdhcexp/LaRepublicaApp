@@ -60,6 +60,9 @@ export default {
             }
             return this.me != null
 
+        },
+        checkState(){
+            return this.$store.getters['lrmasgql/getTopics'];
         }
     },
     methods: {
@@ -73,9 +76,13 @@ export default {
         clearToken() {
             ApplicationSettings.setString("token", "")
         }
-
-
+    },
+    watch: {
+        checkState (newVal, oldVal) {
+      // Our fancy notification (2).
+      this.me = this.$store.getters['lrmasgql/getTopics']
     }
+  }
 }
 
 </script>

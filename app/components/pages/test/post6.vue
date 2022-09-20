@@ -47,14 +47,14 @@ apollo:{
 },
 methods: {
   testmethod() {
-    debugger;
+    
     inittest();
   }
 },
 }
 
 function inittest(){
-  debugger;
+  
 let initElement = "<div><span>text</span>Text2</div>";
 let json = mapDOM(initElement, true);
 console.log(json);

@@ -2,14 +2,20 @@
     <Page class="page">
         <ActionBar backgroundColor="#fff">
             <NavigationButton text="" android.systemIcon="ic_menu_back" @tap="goBack" />
-            <SearchBar hint="search" @textChange="onTextChanged" v-model="searchQuery">
+			<StackLayout orientation="horizontal" class="input-search">					
+                <SearchBar hint="search" @textChange="onTextChanged" v-model="searchQuery">
 
-            </SearchBar>
+                </SearchBar>
+			</StackLayout>                  
         </ActionBar>
-
-
         <StackLayout>
-            <label :text="searchTerm"></label>
+            <label :text="searchTerm" class="search-bar"></label>
+            <!--<Label class="search-bar">
+                <FormattedString>
+                    <Label text="Resultados por: "></Label>
+                    <Label text="Economía" class="search-word"></Label>
+                </FormattedString>
+            </Label>-->
             <ScrollView orientation="horizontal" height="68" class="enterprise-gral">
 
                 <GridLayout :columns="genCols" v-if="facetsExist">
@@ -150,29 +156,54 @@ export default {
 
 
 <style scoped>
-.enterprise-gral {
-    margin: 0 5px;
-}
-
-.menu {
-    border-color: #C2C2C2;
-    border-width: 1 1 1 1;
-    height: 68px;
-    padding: 9px 18px;
-    text-align: center;
-    font-size: 11px;
-    line-height: 14px;
-    font-family: Montserrat;
-    font-weight: 500;
-    color: #808080;
-    border-radius: 32px;
-    margin-left: 5px;
-    margin-right: 5px;
-}
-
-.active {
-    color: #C51A1B;
-    background-color: #EEEEEE;
-    border-color: #EAEAEA;
-}
+    .input-search {
+        width: 78%;
+        height: 94px;
+        background: #FFFFFF;
+        border-width: 1 1 1 1;
+        border-color: #C2C2C2;
+        border-radius: 52px;
+        color: #000000;
+        font-size: 14px;
+        line-height: 25px;
+        font-family: Montserrat;
+        font-weight: 500;
+    }
+    .search-bar {
+        background-color: #F5F4F6;
+        height: 100px;
+        font-size: 12px;
+        line-height: 25px;
+        font-family: Montserrat;
+        font-weight: 500;
+        color: #808080;
+        padding: 17px 16px;
+    }
+    .search-word {
+        font: italic normal bold 12px/25px Montserrat;
+        color: #000000;
+    }
+    .enterprise-gral {
+        margin: 0 5px;
+    }
+    .menu {
+        border-color: #C2C2C2;
+        border-width: 1 1 1 1;
+        height: 68px;
+        padding: 9px 18px;
+        text-align: center;
+        font-size: 11px;
+        line-height: 14px;
+        font-family: Montserrat;
+        font-weight: 500;
+        color: #808080;
+        border-radius: 32px;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+    .active {
+        color: #C51A1B;
+        background-color: #EEEEEE;
+        border-color: #EAEAEA;
+    }
 </style>

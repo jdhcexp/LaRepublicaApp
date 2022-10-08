@@ -15,6 +15,24 @@
 				<label column="8" text="Bancos" class="enterprise-menu" textWrap="true"></label> -->
             </GridLayout>
         </ScrollView>
+
+
+
+        <!-- Inicio - Menú principal construido de ceros. -->
+        <ScrollView orientation="horizontal" height="34" class="menu-manual">
+            <GridLayout columns="auto auto auto auto auto auto auto">
+                <label column="0" text="ÚLTIMAS NOTICIAS" class="manual-option manual-active" textWrap="true"></label>
+                <label column="1" text="MIS NOTICIAS" class="manual-option" textWrap="true"></label>
+                <label column="2" text="TENDENCIAS" class="manual-option" textWrap="true"></label>
+                <label column="3" text="CENTRAL DE AGENCIAS" class="manual-option" textWrap="true"></label>
+                <label column="4" text="ANÁLISIS" class="manual-option" textWrap="true"></label>
+                <label column="5" text="CAJA FUERTE" class="manual-option" textWrap="true"></label>
+                <label column="6" text="VIDEOS" class="manual-option" textWrap="true"></label>
+            </GridLayout>
+        </ScrollView>
+        <!-- Fin - Menú principal construido de ceros. -->
+
+
         <!-- <SegmentedBar v-model="selectedItem" v-if="videos && videos.shows">
             <SegmentedBarItem title="Todos" />
             <SegmentedBarItem v-for="item in shows" :key="item.id" :title="item.name" />
@@ -123,4 +141,31 @@ export default {
     background-color: #EEEEEE;
     border-color: #EAEAEA;
 }
+
+
+
+/*** Inicio de estilos - Menú principal construido de ceros. ***/
+.menu-manual {
+    border-color: #C2C2C2;
+    border-width: 0 0 1 0;
+    height: 34px;
+    margin-bottom: 22px;
+}
+.manual-option {
+    text-align: center;
+    font-size: 10px;
+    line-height: 13px;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: #808080;
+    padding: 11px 18px;
+}
+.manual-active {
+    font-weight: 600;
+    color: #C51A1B;
+    border-color: #C51A1B;
+    border-width: 0 0 3 0;
+    padding: 15px 18px 7px;
+}
+/*** Fin de estilos - Menú principal construido de ceros. ***/
 </style>

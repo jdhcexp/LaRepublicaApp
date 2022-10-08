@@ -6,7 +6,6 @@
             :class="getIndicatorClass(quote.quoteValue.variationType)" />
         <Label text="" class="icon-indicator" :class="getIndicatorSign(quote.quoteValue.variationType)" />
     </StackLayout>
-
 </template>
 
 <script>

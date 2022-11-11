@@ -1,13 +1,11 @@
 <template>
 
-  <ScrollView v-if="post">
+
+    <WebView src="https://www.google.com"/>
 
 
-    
-        
-        <WebView :src="post.content" />
-   
-</ScrollView>
+
+
 </template>
 
 <script>
@@ -22,16 +20,16 @@ query Post{
     }
     header
     title
-    create        
+    create
     author{
       id
       name
       photo {
         alt
         url
-      }      
+      }
     }
-    content(platform: APP)    
+    content(platform: APP)
     attachments{
       title
       url
@@ -45,7 +43,7 @@ query Post{
 }
 `
 export default {
-  
+
 apollo:{
     post: POST_QUERY
 },

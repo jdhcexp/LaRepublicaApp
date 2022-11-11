@@ -1,22 +1,23 @@
 <template>
-<StackLayout orientation="horizontal" class="content-videos">
-    <AbsoluteLayout backgroundColor="#fff">          
+<StackLayout orientation="horizontal" class="content-videos" @tap="onNavigationItemTap(headline.id)">
+    <AbsoluteLayout backgroundColor="#fff">
         <Image :src="headline.youtubeThumb" top="0" class="thumbnail-video"/>
         <StackLayout class="box-play-int">
             <Image src="~/assets/icons/play.png" width="40" />
         </StackLayout>
-    </AbsoluteLayout>   
+    </AbsoluteLayout>
     <StackLayout>
         <Label :text="headline.header" class="category category-thumb" />
         <label :text="headline.title" textWrap="true" class="text-thumb-video" />
         <StackLayout orientation="horizontal">
-            <Label class="box-hash-mini" text="DATOS COCTELEROS" textWrap="true"/>
+            <Label class="box-hash-mini" v-if="headline.videoShow && headline.videoShow.name" :text="headline.videoShow.name.toUpperCase()" textWrap="true"/>
         </StackLayout>
     </StackLayout>
 </StackLayout>
 </template>
 
 <script>
+import VideoPost from '../posts/VideoPost.vue';
 export default {
     props: {
         headline: {
@@ -25,7 +26,24 @@ export default {
     },
     data() {
         return {};
-    }
+    },
+    methods: {
+        onNavigationItemTap(id) {
+            debugger;
+            this.$navigateTo(VideoPost, {
+                transition: {
+                    name: "slideLeft",
+                    duration: 100,
+                    curve: "easeIn"
+                },
+                props:{
+                    postId: id
+                }
+            }
+            ).catch(error => console.log(error));
+            // utils.closeDrawer();
+        }
+    },
 };
 </script>
 <style scoped>

@@ -45,7 +45,7 @@ export default {
     return new Promise((resolve, reject) => {
       apolloProv.defaultClient.query({
         query: lrqueries.CATS_MENU_QUERY
-      }).then(resp => {      
+      }).then(resp => {
         context.commit("saveCatsMenu", resp.data.menu);
         resolve();
       })
@@ -63,7 +63,7 @@ export default {
   },
   async loadIndicatorsByMacro(context, payload) {
     return new Promise((resolve, reject) => {
-        
+
       const q = payload == null ? lrqueries.INDICATORS_QUERY : lrqueries.INDICATORS_QUERY_CAT;
       apolloProv.clients.marketClient.query({
         query: q,
@@ -71,7 +71,7 @@ export default {
           cat: payload
         }
       }).then(resp => {
-     
+
         context.commit("saveIndicators", (resp.data.quotes));
         resolve();
       })
@@ -89,7 +89,7 @@ export default {
   },
   async loadIndicatorDetail(context, payload) {
     return new Promise((resolve, reject) => {
-      
+
 
       apolloProv.clients.marketClient.query({
         query: lrqueries.INDICATOR_DETAIL_QUERY,
@@ -101,7 +101,7 @@ export default {
           take: payload.take
         }
       }).then(resp => {
-       
+
         context.commit("saveIndicatorDetail", (resp.data.byIds));
 
         resolve();
@@ -110,8 +110,7 @@ export default {
   },
   async loadSectionTag(context, payload) {
     return new Promise((resolve, reject) => {
-      console.log("!!!!!!!!!!!!!!!!!!")
-      console.log(payload);
+
       const q = payload.type == "SECTION" ? lrqueries.SECTION_QUERY : lrqueries.TAG_QUERY;
       apolloProv.defaultClient.query({
         query: q,
@@ -119,9 +118,8 @@ export default {
           id: parseInt(payload.id)
 
         }
-      }).then(resp => {     
-        console.log("!!!!!!!!!!!!!!!!!!")
-        console.log(resp);
+      }).then(resp => {
+
         const respToSave = payload.type == "SECTION" ? resp.data.section : resp.data.tag
         context.commit("saveSection", respToSave);
         resolve();
@@ -129,7 +127,7 @@ export default {
     })
   },
   async loadStandardPost(context, payload) {
-    return new Promise((resolve, reject) => {      
+    return new Promise((resolve, reject) => {
       const q = lrqueries.STANDARD_POST_QUERY
       apolloProv.defaultClient.query({
         query: q,
@@ -137,7 +135,7 @@ export default {
           id: parseInt(payload)
 
         }
-      }).then(resp => {    
+      }).then(resp => {
         context.commit("saveStandardPost", resp.data.post);
         resolve();
       })
@@ -170,7 +168,47 @@ export default {
         resolve();
       })
     })
-  }
+  },
+  async loadTrends(context, payload){
+    return new Promise((resolve, reject) => {
+      const q = lrqueries.TRENDS_QUERY;
+      apolloProv.defaultClient.query({
+        query: q,
+      }).then(resp => {
+        context.commit("saveTrends", resp.data.trends)
+        resolve();
+      }).catch(error => {
+        console.log(error);
+      })
+    })
+  },
+  async loadAgencies(context, payload){
+    return new Promise((resolve, reject) => {
+      const q = lrqueries.AGENCIES_QUERY;
+      apolloProv.defaultClient.query({
+        query: q,
+        variables: {
+          id: parseInt(payload.id)
+        }
+      }).then(resp => {
+        context.commit("saveAgencies", resp.data.centralAgencies)
+        resolve();
+      })
+    })
+  },
+  async loadGuests(context, payload){
+    return new Promise((resolve, reject) => {
+      const q = lrqueries.GUESTS_QUERY;
+      apolloProv.defaultClient.query({
+        query: q,
+      }).then(resp => {
+        context.commit("saveGuests", resp.data.analysis.guests)
+        resolve();
+      }).catch(error => {
+        console.log(error);
+      })
+    })
+  },
 
 }
 

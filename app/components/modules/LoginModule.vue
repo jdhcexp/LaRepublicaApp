@@ -1,5 +1,5 @@
 <template>
-    <StackLayout>
+    <StackLayout background-color="#fff">
 		<Image src="~/assets/icons/noticias_gray.png" width="85" class="logo-news" />
     	<label :text="getTitle" class="title-news"></label>
     	<label :text="getSubtitle" class="description-news" textWrap="true"></label>
@@ -7,15 +7,16 @@
 			<label text="Si usted es suscriptor puede" class="instruction"></label>
 			<button class="btn-iniciar" @tap="onLoginTap()">INICIAR SESIÓN</button>
 			<label text="o de lo contrario" class="instruction"></label>
-			<button @tap="onLogoutTap()" class="btn-subscribe">SUSCRÍBASE AQUÍ</button>
+			<button @tap="onSubscribeTap()" class="btn-subscribe">SUSCRÍBASE AQUÍ</button>
 			<label :text="getToken"></label>
 		</StackLayout>
 	</StackLayout>
-</template>  
+</template>
 <script>
     // var auth_service_1 = require("../../auth-service");
     import { ApplicationSettings } from '@nativescript/core';
-      
+import { openUrl } from '@nativescript/core/utils';
+
     export default {
 		data() {
 			return {
@@ -31,11 +32,11 @@
 					ink:"Acceda en formato electrónico a la réplica fiel de principio a fin de nuestras publicaciones impresas. Textos, imágenes, publicidad.",
 					kiosko:"Seleccione y lea mas de 300 libros y revistas de actualidad, en un amplio espectro de temas de interés a nivel mudial, seleccionados exclusivamente para usted, en alianza con OverDrive."
 				},
-				title:null,				
+				title:null,
 				subtitle:null
-			}			
+			}
 		},
-		props:['type'],    
+		props:['type'],
       computed: {
         getToken() {
           return ApplicationSettings.getString('token');
@@ -48,14 +49,17 @@
 		}
 
       },
-    
+
       methods: {
         onLoginTap() {
           this.$store.dispatch('auth/saveToken', 'keycloak')
         },
         onLogoutTap() {
-    
-        }
+
+        },
+		onSubscribeTap() {
+			openUrl("https://suscripciones.larepublica.co/");
+		}
       }
     }
 </script>

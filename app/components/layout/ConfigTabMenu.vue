@@ -22,7 +22,7 @@
                 <GridLayout>
                    <mail-config></mail-config>
                 </GridLayout>
-            </MDTabContentItem>           
+            </MDTabContentItem>
         </MDTabs>
     </StackLayout>
 </template>
@@ -44,5 +44,8 @@
     };
 </script>
 
-<style>
+<style scoped>
+MDTabStrip {
+    highlight-color: red;
+}
 </style>

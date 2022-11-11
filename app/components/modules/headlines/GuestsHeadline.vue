@@ -1,5 +1,5 @@
 <template>
-<StackLayout orientation="horizontal" class="content-analysts">
+<StackLayout orientation="horizontal" class="content-analysts" @tap="onNavigationItemTap(headLine.analysisPosts[0].id)">
     <StackLayout>
     <Image :src="headLine.photo.url" class="thumbnail-analyst" />
     </StackLayout>

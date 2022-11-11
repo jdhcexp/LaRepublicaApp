@@ -38,13 +38,13 @@ const apolloProv = new ApolloProvider({
 
 
 export default {
-  getTopicsInfo(context) {   
+  getTopicsInfo(context) {
     const response = apolloProv.defaultClient.query({
       query: lrmasqueries.ME_QUERY_T,
-    }).then(resp => {    
+    }).then(resp => {
       context.commit("saveTopics", (resp.data.me))
     }).catch(e => {
-      debugger;
+
       console.log(e);
     })
   },
@@ -64,8 +64,8 @@ export default {
   async loadDigitalVersion(context, payload){
     return new Promise(function (resolve, reject) {
       const response = apolloProv.defaultClient.query({
-        query: lrmasqueries.DIGITAL_VERSION        
-      }).then(resp => {      
+        query: lrmasqueries.DIGITAL_VERSION
+      }).then(resp => {
         context.commit("saveDigitalVersions", (resp.data.digitalVersion));
         resolve();
       })
@@ -74,8 +74,8 @@ export default {
   async loadMediaTypes(context){
     return new Promise(function (resolve, reject) {
       const response = apolloProv.defaultClient.query({
-        query: lrmasqueries.BOOKS_MEDIATYPES        
-      }).then(resp => {             
+        query: lrmasqueries.BOOKS_MEDIATYPES
+      }).then(resp => {
         context.commit("saveMediaTypes", (resp.data.books.mediaTypes));
         resolve();
       })
@@ -83,16 +83,14 @@ export default {
   },
   async loadBooks(context, payload) {
     return new Promise(function (resolve, reject) {
-      console.log("#########################")
-      console.log(payload)
+
       const response = apolloProv.defaultClient.query({
         query: lrmasqueries.BOOKS,
         variables: {
           mediaType: payload.mediaType
         }
       }).then(resp => {
-        console.log("#########################")
-        console.log(resp)
+
         context.commit("saveBooks", (resp.data.books.search.items));
         resolve();
       }).catch(error =>{

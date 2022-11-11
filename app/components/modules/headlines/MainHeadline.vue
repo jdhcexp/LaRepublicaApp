@@ -1,8 +1,8 @@
 <template>
-    <WrapLayout backgroundColor="#fff">
+    <WrapLayout backgroundColor="#fff" @tap="onNavigationItemTap(opening.id)">
         <Label :text="opening.header" class="category" />
         <AbsoluteLayout backgroundColor="#fff">
-            <Image :src="opening.principalImage.url" top="49" class="img-ppal" @tap="onNavigationItemTap(opening.id)" />
+            <Image :src="opening.principalImage.url" top="49" class="img-ppal" />
             <StackLayout class="titular-box">
                 <label :text="opening.title" class="titular-ppal" textWrap="true" />
                 <!-- <label :text="opening.id" class="titular-ppal" textWrap="true" /> -->
@@ -41,7 +41,7 @@ export default {
         return {};
     },
     methods: {
-        showInfo() {       
+        showInfo() {
             console.log(this.opening);
         },
         onNavigationItemTap(id) {

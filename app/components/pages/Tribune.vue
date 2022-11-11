@@ -1,6 +1,6 @@
 <template>
   <ScrollView>
-    <button @tap="showInfo">qwertyui</button>
+    <!-- <button @tap="showInfo">qwertyui</button> -->
     <WrapLayout backgroundColor="#fff" v-if="hlChecker">
 
       <Label text="Viernes" class="analysis-day" />
@@ -17,7 +17,7 @@ import TribuneHeadline from '../modules/headlines/TribuneHeadline';
 
 const GUESTS_QUERY = gql`
 query Analysis {
-  analysis {   
+  analysis {
     tribunes{
       name
       id

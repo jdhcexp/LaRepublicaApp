@@ -1,8 +1,8 @@
 <template>
   <ScrollView>
-    
-    <WrapLayout backgroundColor="#fff" v-if="getHome">   
-      <!-- <button @tap="showinfo">1212312</button> 
+
+    <WrapLayout backgroundColor="#fff" v-if="getHome">
+      <!-- <button @tap="showinfo">1212312</button>
       <button @tap="eraseToken">8979878</button>  -->
       <label :text="token"></label>
       <MainHeadline :opening="first" v-if="home && home.opening && home.opening.length > 0"></MainHeadline>
@@ -22,8 +22,8 @@ import MainHeadline from "../modules/headlines/MainHeadline.vue";
 import StandardHeadline from "../modules/headlines/StandardHeadline.vue";
 
 const LAST_NEWS_QUERY = gql`
-query getLastNews {  
-  home {    
+query getLastNews {
+  home {
     specialOpening {
       specialTitle
       relatedNews {
@@ -43,7 +43,7 @@ query getLastNews {
       principalImage {
         url(size: 480)
       }
-      urlApp      
+      urlApp
     }
   }
 }
@@ -54,9 +54,9 @@ export default {
     MainHeadline,
     StandardHeadline
   },
-  // apollo: {        
+  // apollo: {
   //     home: LAST_NEWS_QUERY
-  // },   
+  // },
   data() {
     return {
       home: null,
@@ -71,7 +71,7 @@ export default {
       return this.home.opening[0];
     },
     headLines() {
-      
+
       return this.home.opening.slice(1);
     },
     getHome() {
@@ -82,7 +82,7 @@ export default {
     }
   },
   methods: {
- 
+
     showinfo(){
 
       this.token = this.$store.getters["auth/getToken"]
@@ -94,8 +94,8 @@ export default {
       // this.showinfo();
     }
   },
-  async beforeMount() {    
-    this.$store.dispatch('lrgql/getLastNews');    
+  async beforeMount() {
+    this.$store.dispatch('lrgql/getLastNews');
   }
 
 

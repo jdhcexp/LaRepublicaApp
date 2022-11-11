@@ -5,26 +5,27 @@
 		</ActionBar>
 		<ScrollView ref="scrollLayout" class="scrollLayout">
 			<!-- <label :text="postId"></label> -->
-			<GridLayout rows="auto auto" v-if="postExist">
-				<WrapLayout row="0" backgroundColor="#fff">
-					<Label :text="post.header" class="category" />
-					<label :text="post.title" class="titular-into" textWrap="true" />
-					<Label text="2017/11/06" class="date" />
-					<AbsoluteLayout backgroundColor="#fff">
-						<Image :src="post.principalImage.url" top="0" class="img-ppal" />
-					</AbsoluteLayout>
-					<StackLayout orientation="horizontal" class="post-foot">
+			<GridLayout rows="auto auto auto auto auto auto" v-if="postExist">
+
+					<Label row="0" :text="post.header" class="category" />
+					<label row="1" :text="post.title" class="titular-into" textWrap="true" />
+					<Label row="2" text="2017/11/06" class="date" />
+
+						<WebView row="3" :src="youtubeCode" minHeight="250" @loadFinished="onloadFinished"></WebView>
+
+					<!-- <StackLayout orientation="horizontal" class="post-foot">
 						<Image src="~/assets/icons/camara.png" width="15" class="" verticalAlignment="center" />
 						<Label text="Bloomberg" class="text-bloom" />
-					</StackLayout>
+					</StackLayout> -->
 
-					<Label :text="post.lead" class="text-lead" textWrap="true" />
-
-				</WrapLayout>
+					<Label row="4" :text="post.lead" class="text-lead" textWrap="true" />
 
 
-				<WebView #postWebView row="1" :src="post.content" @loadFinished="onloadFinished"
-					@loadStarted="onLoadStarted" minHeight="1000" />
+
+
+
+				<WebView #postWebView row="5" :src="post.content" @loadFinished="onloadFinished"
+					@loadStarted="onLoadStarted" minHeight="500" />
 			</GridLayout>
 
 		</ScrollView>
@@ -47,6 +48,9 @@ export default {
 		postExist() {
 			return this.post != null;
 		},
+		youtubeCode(){
+			return `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/${this.post.externalVideo}" frameborder="0" allowfullscreen></iframe>`
+		}
 	},
 	methods: {
 		onloadFinished(args) {
@@ -55,7 +59,7 @@ export default {
 			setTimeout(() => {
 
 				if (args.object.nativeView) {
-					args.object.height = args.object.nativeView.scrollView.contentSize.height;
+					args.object.height = args.object.nativeView.scrollView.contentSize.height+50;
 				}
 			}, 300);
 
@@ -78,14 +82,13 @@ export default {
 
 	},
 	beforeMount() {
-		this.post = null;
+		this.post=null;
 		if (this.postId) {
 			this.$store.dispatch("lrgql/loadStandardPost", this.postId).then(() => {
 				this.post = this.$store.getters["lrgql/getStandardPost"]
 			})
 		}
 	},
-
 }
 </script>
 <style scoped>
@@ -153,5 +156,10 @@ export default {
 	margin-left: 22px;
 	padding-right: 22px;
 	margin-right: 22px;
+}
+
+.ytWebView{
+	width: 100%;
+	height: 100%;
 }
 </style>

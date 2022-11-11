@@ -1,8 +1,8 @@
 <template>
-  <ScrollView v-if="post"> 
-   
+  <ScrollView v-if="post">
+
     <WebView :src="post.content" />
-   
+
    </ScrollView>
 
 </template>
@@ -19,16 +19,16 @@ query Post{
     }
     header
     title
-    create        
+    create
     author{
       id
       name
       photo {
         alt
         url
-      }      
+      }
     }
-    content(platform: APP)    
+    content(platform: APP)
     attachments{
       title
       url
@@ -47,22 +47,22 @@ apollo:{
 },
 methods: {
   testmethod() {
-    
+
     inittest();
   }
 },
 }
 
 function inittest(){
-  
+
 let initElement = "<div><span>text</span>Text2</div>";
 let json = mapDOM(initElement, true);
-console.log(json);
+
 }
 
 function mapDOM(element, json) {
     var treeObject = {};
-    
+
     // If string convert to document Node
     if (typeof element === "string") {
         if (window.DOMParser) {
@@ -71,11 +71,11 @@ function mapDOM(element, json) {
         } else { // Microsoft strikes again
               docNode = new ActiveXObject("Microsoft.XMLDOM");
               docNode.async = false;
-              docNode.loadXML(element); 
-        } 
+              docNode.loadXML(element);
+        }
         element = docNode.firstChild;
     }
-    
+
     //Recursively loop through DOM elements and assign properties to object
     function treeHTML(element, object) {
         object["type"] = element.nodeName;
@@ -103,7 +103,7 @@ function mapDOM(element, json) {
         }
     }
     treeHTML(element, treeObject);
-    
+
     return (json) ? JSON.stringify(treeObject) : treeObject;
 }
 </script>

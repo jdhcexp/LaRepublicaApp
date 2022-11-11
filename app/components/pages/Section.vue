@@ -60,7 +60,7 @@ export default {
   },
   watch: {
     req: function (newVal, oldVal) {
-      console.log("watching section")
+
       this.$store.dispatch("lrgql/loadSectionTag", newVal).then(() => {
         this.section = this.$store.getters['lrgql/getSectionInfo']
 

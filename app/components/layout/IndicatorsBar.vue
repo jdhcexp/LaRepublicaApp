@@ -1,10 +1,10 @@
 <template>
-    <StackLayout v-if="bannerExist">
+    <StackLayout v-if="bannerExist" background-color="#fff">
         <ScrollView orientation="horizontal" height="32" class="indicators-bar">
             <GridLayout
                 :columns="genCols">
                 <IndicatorInBar :idx="index" v-for="(item, index) in banner" :key="index" :indicator="item"></IndicatorInBar>
-               
+
             </GridLayout>
         </ScrollView>
     </StackLayout>
@@ -23,7 +23,7 @@ export default {
             banner:null
         }
     },
-   
+
     computed:{
         bannerExist(){
             if(this.banner == null){

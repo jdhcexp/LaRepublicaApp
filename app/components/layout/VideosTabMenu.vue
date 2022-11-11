@@ -19,7 +19,7 @@
 
 
         <!-- Inicio - Menú principal construido de ceros. -->
-        <ScrollView orientation="horizontal" height="34" class="menu-manual">
+        <!-- <ScrollView orientation="horizontal" height="34" class="menu-manual">
             <GridLayout columns="auto auto auto auto auto auto auto">
                 <label column="0" text="ÚLTIMAS NOTICIAS" class="manual-option manual-active" textWrap="true"></label>
                 <label column="1" text="MIS NOTICIAS" class="manual-option" textWrap="true"></label>
@@ -29,7 +29,7 @@
                 <label column="5" text="CAJA FUERTE" class="manual-option" textWrap="true"></label>
                 <label column="6" text="VIDEOS" class="manual-option" textWrap="true"></label>
             </GridLayout>
-        </ScrollView>
+        </ScrollView> -->
         <!-- Fin - Menú principal construido de ceros. -->
 
 

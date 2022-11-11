@@ -47,6 +47,7 @@ export default {
 <style scoped>
 .enterprise-gral {
     margin: 0 5px;
+    background-color: #FFF;
 }
 
 .menu {

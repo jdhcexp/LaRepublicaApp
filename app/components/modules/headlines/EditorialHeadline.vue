@@ -1,12 +1,12 @@
 <template>
-<StackLayout>
+<StackLayout  @tap="onNavigationItemTap(headLine.id)">
     <StackLayout class="analysis-editorial">
         <Label text="EDITORIAL" class="category category-analysis" />
         <Label :text="headLine.title" textWrap="true" class="title-analysis" />
         <Label :text="headLine.create" class="date-analysis" />
     </StackLayout>
     <AbsoluteLayout class="back-analysis">
-        <Image :src="headLine.principalImage.url" class="img-analysis"  @tap="onNavigationItemTap(headLine.id)" />
+        <Image :src="headLine.principalImage.url" class="img-analysis"  />
     </AbsoluteLayout>
 </StackLayout>
 </template>

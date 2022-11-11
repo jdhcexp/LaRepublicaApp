@@ -4,8 +4,8 @@ import gql from 'graphql-tag';
 
 export const lrqueries = {
   LAST_NEWS_QUERY: gql`
-    query getLastNews {  
-    home {    
+    query getLastNews {
+    home {
         specialOpening {
         specialTitle
         relatedNews {
@@ -25,7 +25,7 @@ export const lrqueries = {
         principalImage {
             url(size: 480)
         }
-        urlApp      
+        urlApp
         }
     }
     }`,
@@ -59,7 +59,7 @@ export const lrqueries = {
             value
             percentageVariation
             variationType
-         }   
+         }
         }
       }`,
   INDICATORS_QUERY: gql`
@@ -73,19 +73,21 @@ export const lrqueries = {
           value
           percentageVariation
           variationType
-       }   
+       }
       }
     }`,
   STOCKS_QUERY: gql`
     query stock{
         bvc{
+          id
           name
+          quoteType
            description
             quoteValue {
               value
               percentageVariation
               variationType
-           }   
+           }
         }
     }`,
   INDICATOR_DETAIL_QUERY: gql`
@@ -116,9 +118,9 @@ export const lrqueries = {
     }`,
   SECTION_QUERY: gql`
     query sections($id: Int!){
-      section(id: $id) {        
+      section(id: $id) {
         id
-        name    
+        name
         posts{
           id
           title
@@ -130,15 +132,15 @@ export const lrqueries = {
           principalImage {
             url(size: 240)
           }
-          urlApp       
+          urlApp
         }
       }
     }`,
   TAG_QUERY: gql`
     query tags($id: Int!){
-      tag(id: $id) {        
+      tag(id: $id) {
         id
-        name    
+        name
         posts{
           id
           title
@@ -150,7 +152,7 @@ export const lrqueries = {
           principalImage {
             url(size: 240)
           }
-          urlApp       
+          urlApp
         }
       }
     }`,
@@ -161,21 +163,22 @@ export const lrqueries = {
           id
           name
         }
+        lead
         header
         title
-        create  
+        create
         principalImage {
               url(size: 240)
-            }      
+            }
         author{
           id
           name
           photo {
             alt
             url
-          }      
+          }
         }
-        content(platform: APP)    
+        content(platform: APP)
         attachments{
           title
           url
@@ -185,6 +188,8 @@ export const lrqueries = {
           id
           urlApp
         }
+        youtubeThumb
+        externalVideo
       }
     }`,
   SEARCH_QUERY: gql`
@@ -207,12 +212,59 @@ export const lrqueries = {
           displayName
           items{
             item
-            count 
+            count
           }
         }
       }
     }`,
+  TRENDS_QUERY: gql`
+    query getTrends{
+      trends(take: 10){
+        id
+        header
+        title
+        urlApp
+        urlWeb
+      }
+    }`,
+  AGENCIES_QUERY: gql`
+    query Post($id: Int){
+      centralAgencies(id: $id) {
+        id
+        title
+        header
+        companyName
+        content
+        image {
+          url
+        }
+        agency {
+          id
+          name
+        }
 
+      }
+    }
+    `,
+  GUESTS_QUERY: gql`
+    query Analysis {
+      analysis {
+        guests {
+          id
+          position
+          name
+          photo {
+            alt
+            url
+          }
+          analysisPosts(take: 1) {
+            id
+            title
+            urlApp
+          }
+        }
+      }
+    }`,
 }
 
 export const enums = {

@@ -34,6 +34,15 @@ export default {
   },
   getSearchFacets(state) {
     return state.searchFacets;
+  },
+  getTrends(state){
+    return state.trends;
+  },
+  getAgencies(state){
+    return state.agencies;
+  },
+  getGuests(state){
+    return state.guests;
   }
 
 }

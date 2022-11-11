@@ -20,7 +20,7 @@
                 </MDTabStripItem>
 
             </MDTabStrip>
-            <MDTabContentItem>
+            <MDTabContentItem backgroundColor="#fff" >
                 <GridLayout>
                     <StackLayout>
                         <login-module v-if="!checktok" type="news"></login-module>
@@ -28,7 +28,7 @@
                     <MyNewsTabMenu v-if="checktok"></MyNewsTabMenu>
                 </GridLayout>
             </MDTabContentItem>
-            <MDTabContentItem>
+            <MDTabContentItem  backgroundColor="#fff">
                 <GridLayout>
                     <StackLayout>
                         <login-module v-if="!checktok" type="ink"></login-module>
@@ -46,7 +46,7 @@
                     <label text="centro de convenciones"></label>
                 </GridLayout>
             </MDTabContentItem> -->
-            <MDTabContentItem>
+            <MDTabContentItem  backgroundColor="#fff">
                 <GridLayout>
                     <StackLayout>
                         <login-module v-if="!checktok" type="kiosko"></login-module>
@@ -98,7 +98,7 @@ export default {
         getToken(newVal, oldVal) {
             this.$store.dispatch('lrmasgql/getTopicsInfo');
             this.$store.dispatch('lrmasgql/loadDigitalVersion');
-            this.$store.dispatch('lrmasgql/loadMediaTypes');            
+            this.$store.dispatch('lrmasgql/loadMediaTypes');
         }
     }
 
@@ -116,5 +116,9 @@ export default {
     text-align: center;
     font: normal normal bold 10px/13px Montserrat;
     color: #C51A1B;
+}
+
+MDTabStrip {
+    highlight-color: red;
 }
 </style>

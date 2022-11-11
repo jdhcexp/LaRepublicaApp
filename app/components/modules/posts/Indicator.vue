@@ -19,11 +19,11 @@
                     </StackLayout>
                 </WrapLayout>
             </StackLayout>
-            <RadCartesianChart row="3" class="grafica">
+            <RadCartesianChart row="3" class="grafica" fillcolor="#FFFFFF">
                 <CategoricalAxis v-tkCartesianHorizontalAxis></CategoricalAxis>
                 <LinearAxis v-tkCartesianVerticalAxis allowZoom="true" :minimum="min" :maximum="max"></LinearAxis>
                 <LineSeries v-tkCartesianSeries :items="setDataToDraw" :categoryProperty="xAxysName"
-                    :valueProperty="yAxysName">
+                   :valueProperty="yAxysName">
                 </LineSeries>
             </RadCartesianChart>
             <StackLayout row="4" orientation="horizontal" class="filters-gral">
@@ -51,7 +51,7 @@
                         <Label text="Fuente: "></Label>
                         <Label text="Set-FX" class="var-data"></Label>
                     </FormattedString>
-                </Label>           
+                </Label>
             </StackLayout>
         </GridLayout>
     </page>
@@ -76,7 +76,7 @@ export default {
             return this.indData && this.indData.length > 0;
         },
         setDataToDraw() {
-            
+
             if (this.indicatorExist) {
                 this.indData[0].graphicData.dataset.forEach((element, idx) => {
                     if (idx == 0) {
@@ -99,7 +99,7 @@ export default {
                         }
                     }
                 });
-            }          
+            }
             return this.dataToDraw;
         }
     },
@@ -130,7 +130,7 @@ export default {
 
     },
     beforeMount() {
-        
+
         this.types = this.$store.getters["lrgql/getQuoteTypeEnum"];
         const vars = {
             id: this.indId,
@@ -140,7 +140,7 @@ export default {
             take: null
         }
         this.$store.dispatch("lrgql/loadIndicatorDetail", vars).then(() => {
-            this.indData = this.$store.getters["lrgql/getIndicatorDetail"]        
+            this.indData = this.$store.getters["lrgql/getIndicatorDetail"]
         })
     },
 }
@@ -245,10 +245,12 @@ export default {
     }
     .grafica {
         margin: 20px 30px 0;
+        background-color: #FFF;
     }
     .filters-gral {
         margin: 27px auto;
         width: 600px;
+
     }
     .filter-time {
         width: 100px;
@@ -290,4 +292,4 @@ export default {
         width: 34%;
         text-align: right;
     }
-</style>  
+</style>

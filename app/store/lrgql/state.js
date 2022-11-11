@@ -9,6 +9,9 @@ export default {
   standardPost: null,
   searchResponse: null,
   searchFacets: null,
+  trends:null,
+  agencies:null,
+  guests:null,
   //ENUMS
   indCatTypes: {
     COMMODITIES: "COMMODITIES",

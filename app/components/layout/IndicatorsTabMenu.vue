@@ -5,25 +5,25 @@
                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="INDICADORES" class="item"></Label>
                 </MDTabStripItem>
-                
+
                 <MDTabStripItem backgroundColor="#fff" class="menu">
                     <Label text="ACCIONES" class="item"></Label>
-                </MDTabStripItem>               
+                </MDTabStripItem>
             </MDTabStrip>
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
-                    <IndicatorsSubTabMenu row="0"></IndicatorsSubTabMenu>                    
+                    <IndicatorsSubTabMenu row="0"></IndicatorsSubTabMenu>
                     <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
-            
+
             <MDTabContentItem>
                 <GridLayout rows="*,auto">
                     <StockPage row="0"></StockPage>
                     <IndicatorsBar row="1"></IndicatorsBar>
                 </GridLayout>
             </MDTabContentItem>
-           
+
         </MDTabs>
     </StackLayout>
 </template>
@@ -36,7 +36,7 @@ import StockPage from "../pages/StockPage.vue";
 
 export default{
     components:{
-    
+
     IndicatorsBar,
     IndicatorsSubTabMenu,
     StockPage
@@ -60,4 +60,7 @@ TabStrip.menu {
     selected-item-color: #C51A1B;
 }
 
+MDTabStrip {
+    highlight-color: red;
+}
 </style>

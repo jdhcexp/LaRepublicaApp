@@ -1,5 +1,5 @@
 <template lang="html">
-	<GridLayout rows="auto, *" class="nt-drawer__content">
+	<GridLayout rows="auto, *" class="nt-drawer__content" background-color="#fff">
 		<StackLayout orientation="horizontal" class="draw-superior nt-drawer__header">
 			<!-- <Image class="nt-drawer__header-image fas t-36" src.decode="font://&#xf2bd;"/>
             <Label class="nt-drawer__header-brand" text="User Name"/> -->
@@ -16,22 +16,22 @@
 					<Label col="1" text="Home" class="p-r-10" />
 			</GridLayout> -->
 				<Label class="head-draw" text="NOTICIAS" />
-				<Label class="item-draw" text="FINANZAS" @tap="goToSection(6)" />
-				<Label class="item-draw" text="ECONOMÍA" @tap="goToSection(3)" />
-				<Label class="item-draw" text="EMPRESAS" @tap="goToSection(5)" />
-				<Label class="item-draw" text="OCIO" @tap="goToSection(15)" />
-				<Label class="item-draw" text="GLOBOECONOMÍA" @tap="goToSection(14)" />
-				<Label class="item-draw" text="AGRONEGOCIOS" />
-				<Label class="item-draw" text="ANÁLISIS" />
-				<Label class="item-draw" text="CAJA FUERTE" @tap="goToSection(12)" />
+				<Label class="item-draw" text="FINANZAS" @tap="goToSection(6,'SECTION')" />
+				<Label class="item-draw" text="ECONOMÍA" @tap="goToSection(3,'SECTION')" />
+				<Label class="item-draw" text="EMPRESAS" @tap="goToSection(5,'SECTION')" />
+				<Label class="item-draw" text="OCIO" @tap="goToSection(15,'SECTION')" />
+				<Label class="item-draw" text="GLOBOECONOMÍA" @tap="goToSection(14,'SECTION')" />
+				<Label class="item-draw" text="AGRONEGOCIOS" @tap="goToUrl('https://www.agronegocios.co/')"/>
+				<Label class="item-draw" text="ANÁLISIS" @tap="goToSection(0,'ANALYSIS')"/>
+				<Label class="item-draw" text="CAJA FUERTE" @tap="goToSection(12,'SECTION')" />
 				<Label class="head-draw" text="LR MÁS" />
-				<Label class="item-draw" text="MI SELECCIÓN DE NOTICIAS" />
+				<Label class="item-draw" text="MI SELECCIÓN DE NOTICIAS" @tap="goToSection(1,'LRMAS')"/>
 				<!-- <Label class="item-draw" text="BITÁCORA EMPRESARIAL 10.000 LR"/> -->
 				<!-- <Label class="item-draw" text="CENTRO DE CONVENCIONES"/> -->
-				<Label class="item-draw" text="KIOSKO" />
-				<Label class="item-draw" text="TINTA DIGITAL" />
-				<Label class="item-draw" text="BIBLIOTECA PERSONAL" />
-				<Label class="item-draw" text="NOTIFICACIONES Y ALERTAS" />
+				<Label class="item-draw" text="KIOSKO" @tap="goToSection(2,'LRMAS')"/>
+				<Label class="item-draw" text="TINTA DIGITAL" @tap="goToSection(3,'LRMAS')"/>
+				<Label class="item-draw" text="BIBLIOTECA PERSONAL" @tap="goToSection(4,'LRMAS')" />
+				<Label class="item-draw" text="NOTIFICACIONES Y ALERTAS" @tap="goToSection(5,'LRMAS')" />
 				<Label class="head-draw" text="CONTÁCTENOS" />
 				<Label class="item-draw inferior" text="ESCRÍBANOS" />
 				<Label class="item-description" text="Envie sus preguntas, comentarios o sugerencias" textWrap="true" />
@@ -79,7 +79,7 @@ export default {
 	methods: {
 		onNavigationItemTap(component) {
 			this.$navigateTo(component, {
-				
+
 				// props: {
 				// 	req: {
 				// 		id: 12,
@@ -89,10 +89,10 @@ export default {
 			}).catch(error => console.log(error));
 			utils.closeDrawer();
 		},
-		goToSection(id) {
-			console.log("gotosection: " + id)
+		goToSection(id, ptype) {
+			// console.log("gotosection: " + id)
 			this.$navigateTo(SectionLoader, {
-				
+
 				transition: {
 					name: "slideLeft",
 					duration: 100,
@@ -101,11 +101,14 @@ export default {
 				props: {
 					req: {
 						id: id,
-						type: 'SECTION'
+						type: ptype
 					}
 				}
 			}).catch(error => console.log(error));
 			utils.closeDrawer();
+		},
+		goToUrl(url){
+			openUrl(url);
 		}
 	}
 };

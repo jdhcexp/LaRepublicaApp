@@ -1,5 +1,5 @@
 <template>
-    
+
     <StackLayout>
         <MDBottomNavigation selectedIndex="0">
             <MDTabStrip backgroundColor="#fff" class="menu">
@@ -16,6 +16,7 @@
                 <MDTabStripItem>
                     <Image src="~/assets/icons/logo-lr-mas.png" width="22"
 						verticalAlignment="center" />
+                        <Label text="Beneficios" class="item-footer" />
                 </MDTabStripItem>
                 <MDTabStripItem>
                     <Image src="~/assets/icons/ajustes.png" width="17"
@@ -26,11 +27,11 @@
                     <Label text="test post" lass="item-footer" />
                     <Image src="res://search"></Image>
                 </MDTabStripItem> -->
-              
+
             </MDTabStrip>
-            <MDTabContentItem>               
+            <MDTabContentItem>
                     <MainTabMenu></MainTabMenu>
-                    
+
             </MDTabContentItem>
             <MDTabContentItem>
                 <GridLayout>
@@ -43,14 +44,14 @@
                 </GridLayout>
                 </MDTabContentItem>
                  <MDTabContentItem>
-                <GridLayout>                    
+                <GridLayout>
                     <ConfigTabMenu></ConfigTabMenu>
-                </GridLayout>               
+                </GridLayout>
             </MDTabContentItem>
              <!-- <MDTabContentItem>
-                <GridLayout>                   
-                    <Post1></Post1>
-                </GridLayout>               
+                <GridLayout>
+                    <Post3></Post3>
+                </GridLayout>
             </MDTabContentItem> -->
         </MDBottomNavigation>
     </StackLayout>
@@ -59,12 +60,12 @@
 <script>
      import MainTabMenu from '../layout/MainTabMenu'
 import ConfigTabMenu from './ConfigTabMenu.vue';
-   
+
 
     import TestTabMenu from './TestTabMenu.vue';
 import IndicatorsTabMenu from './IndicatorsTabMenu.vue';
 
-import Post1 from '../pages/test/post1.vue';
+import Post3 from '../pages/test/post3.vue';
 import LRMas from '../pages/LRmas/LRMas.vue';
 import LRmasTabMenu from './LRmasTabMenu.vue';
     export default {
@@ -73,7 +74,7 @@ import LRmasTabMenu from './LRmasTabMenu.vue';
     ConfigTabMenu,
     TestTabMenu,
     IndicatorsTabMenu,
-    Post1,
+    Post3,
     LRMas,
     LRmasTabMenu
 },

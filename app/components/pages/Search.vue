@@ -2,11 +2,11 @@
     <Page class="page">
         <ActionBar backgroundColor="#fff">
             <NavigationButton text="" android.systemIcon="ic_menu_back" @tap="goBack" />
-			<StackLayout orientation="horizontal" class="input-search">					
+            <StackLayout orientation="horizontal" class="input-search">
                 <SearchBar hint="search" @textChange="onTextChanged" v-model="searchQuery">
 
                 </SearchBar>
-			</StackLayout>                  
+            </StackLayout>
         </ActionBar>
         <StackLayout>
             <label :text="searchTerm" class="search-bar"></label>
@@ -19,11 +19,12 @@
             <ScrollView orientation="horizontal" height="68" class="enterprise-gral">
 
                 <GridLayout :columns="genCols" v-if="facetsExist">
-                    <label column="0" :text="allText" class="menu" :class="{active: selectedItem == 0}" textWrap="true"
-                        @tap="selectTag(); selectedItem=0"></label>
+                    <label column="0" :text="allText" class="menu" :class="{ active: selectedItem == 0 }"
+                        textWrap="true" @tap="selectTag(); selectedItem = 0"></label>
                     <label v-for="(item, index) in searchFacets.tags.items" :key="index" :column="index + 1"
-                        :text="item.item+'('+item.count+')'" class="menu" :class="{active: selectedItem == index + 1} "
-                        textWrap="true" @tap="selectTag(item);selectedItem=index+1"></label>
+                        :text="item.item + '(' + item.count + ')'" class="menu"
+                        :class="{ active: selectedItem == index + 1 }" textWrap="true"
+                        @tap="selectTag(item); selectedItem = index + 1"></label>
                     <!-- <label column="1" text="Análisis" class="menu" :class="{active: selectedItem == 1}" textWrap="true" @tap="selectedItem = 1"></label>
 				<label column="2" text="Personaje del dia" class="menu" :class="{active: selectedItem == 2}" textWrap="true" @tap="selectedItem = 2"></label>
 				<label column="3" text="Invitados" class="menu" :class="{active: selectedItem == 3}" textWrap="true" @tap="selectedItem = 3"></label> -->
@@ -110,16 +111,15 @@ export default {
                     term: this.searchQuery,
                     tags: this.selectedTag
                 };
-                console.log(this.searchQuery)
+
                 this.$store.dispatch("lrgql/loadSearchFacets", req).then(() => {
                     this.searchFacets = this.$store.getters["lrgql/getSearchFacets"];
-                    console.log("··································");
+
                     console.log(this.searchFacets);
                 });
                 this.$store.dispatch("lrgql/loadSearch", req).then(() => {
                     this.search = this.$store.getters["lrgql/getSearchResponse"];
-                    console.log("wqeqweqweqweqweqweqweqweqweqeqweq·");
-                    console.log(this.search);
+
                     this.total = this.search.total
                 });
             }
@@ -128,7 +128,7 @@ export default {
             this.selectedTag = []
             if (item) {
                 this.selectedTag.push(item.item)
-                
+
             }
             var req = {
                 term: this.searchQuery,
@@ -156,54 +156,59 @@ export default {
 
 
 <style scoped>
-    .input-search {
-        width: 78%;
-        height: 94px;
-        background: #FFFFFF;
-        border-width: 1 1 1 1;
-        border-color: #C2C2C2;
-        border-radius: 52px;
-        color: #000000;
-        font-size: 14px;
-        line-height: 25px;
-        font-family: Montserrat;
-        font-weight: 500;
-    }
-    .search-bar {
-        background-color: #F5F4F6;
-        height: 100px;
-        font-size: 12px;
-        line-height: 25px;
-        font-family: Montserrat;
-        font-weight: 500;
-        color: #808080;
-        padding: 17px 16px;
-    }
-    .search-word {
-        font: italic normal bold 12px/25px Montserrat;
-        color: #000000;
-    }
-    .enterprise-gral {
-        margin: 0 5px;
-    }
-    .menu {
-        border-color: #C2C2C2;
-        border-width: 1 1 1 1;
-        height: 68px;
-        padding: 9px 18px;
-        text-align: center;
-        font-size: 11px;
-        line-height: 14px;
-        font-family: Montserrat;
-        font-weight: 500;
-        color: #808080;
-        border-radius: 32px;
-        margin-left: 5px;
-        margin-right: 5px;
-    }
-    .active {
-        color: #C51A1B;
-        background-color: #EEEEEE;
-        border-color: #EAEAEA;
-    }
+.input-search {
+    width: 78%;
+    height: 94px;
+    background: #FFFFFF;
+    border-width: 1 1 1 1;
+    border-color: #C2C2C2;
+    border-radius: 52px;
+    color: #000000;
+    font-size: 14px;
+    line-height: 25px;
+    font-family: Montserrat;
+    font-weight: 500;
+}
+
+.search-bar {
+    background-color: #F5F4F6;
+    height: 100px;
+    font-size: 12px;
+    line-height: 25px;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: #808080;
+    padding: 17px 16px;
+}
+
+.search-word {
+    font: italic normal bold 12px/25px Montserrat;
+    color: #000000;
+}
+
+.enterprise-gral {
+    margin: 0 5px;
+}
+
+.menu {
+    border-color: #C2C2C2;
+    border-width: 1 1 1 1;
+    height: 68px;
+    padding: 9px 18px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 14px;
+    font-family: Montserrat;
+    font-weight: 500;
+    color: #808080;
+    border-radius: 32px;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.active {
+    color: #C51A1B;
+    background-color: #EEEEEE;
+    border-color: #EAEAEA;
+}
 </style>

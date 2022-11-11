@@ -16,17 +16,22 @@ import VideoHeadline from '../modules/headlines/VideoHeadline';
 
 const VIDEOS_QUERY = gql`
 query videoposts($showId: Int){
-  videos {     
+  videos {
     posts(showId: $showId){
       id
       title
+      header
       youtubeThumb
       principalImage {
         url
       }
       section {
         id
-        name               
+        name
+      }
+      videoShow {
+        id
+        name
       }
     }
   }

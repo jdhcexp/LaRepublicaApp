@@ -13,7 +13,7 @@
             </GridLayout>
         </ScrollView>
         <GridLayout>
-            <WrapLayout backgroundColor="#fff" v-if="getVersions" >   
+            <WrapLayout backgroundColor="#fff" v-if="getVersions" >
             <!-- <button @tap="showInfo">sdlkskd fksd jfnksdjfksjdk</button> -->
               <Image :src="digitalVersions.items[selectedItem].cover" @tap="onNavigationItemTap(digitalVersions.items[selectedItem].path)"/>
             </WrapLayout>
@@ -46,7 +46,7 @@ export default {
     },
     methods:{
         showInfo() {
-            console.log("·································")
+
             console.log(this.digitalVersions);
         },
         onNavigationItemTap(path) {

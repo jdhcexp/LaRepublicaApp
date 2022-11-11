@@ -1,45 +1,43 @@
 <template>
-<ScrollView>
-    <WrapLayout backgroundColor="#fff" v-if="centralAgencies && centralAgencies.length > 0">
-        <agencies-headline v-for="item in centralAgencies" :key="item.id" :headLine="item"></agencies-headline>       
+  <ScrollView>
+    <WrapLayout backgroundColor="#fff" v-if="agenciesExist">
+      <agencies-headline v-for="item in centralAgencies" :key="item.id" :headLine="item"></agencies-headline>
     </WrapLayout>
-</ScrollView>
+  </ScrollView>
 </template>
 
 <script>
-import gql from 'graphql-tag';
+
 // import MainHeadline from "../modules/MainHeadline"
 import AgenciesHeadline from "../modules/headlines/AgenciesHeadline";
 
-const AGENCIES_QUERY = gql `
-   query agencies{
-  centralAgencies {
-    id
-    title
-    header
-    companyName
-    image {
-      url
-    }    
-    agency {
-      id
-      name      
-    }
-  }
-}
-    `;
-
 export default {
-    components: {
-        // MainHeadline,
-        AgenciesHeadline
-    },
-     apollo: {        
-        centralAgencies: AGENCIES_QUERY
-    },  
-    data() {
-        return {};
+  components: {
+    // MainHeadline,
+    AgenciesHeadline
+  },
+
+  data() {
+    return {
+      centralAgencies: null
+    };
+  },
+  computed: {
+    agenciesExist() {
+      if (this.centralAgencies == null) {
+        this.centralAgencies = this.$store.getters['lrgql/getAgencies'];
+      }
+      return this.centralAgencies && this.centralAgencies.length > 0;
     }
+  },
+  beforeMount() {
+    var req = {
+      id: null
+    };
+    this.$store.dispatch('lrgql/loadAgencies', req).then(() => {
+      this.centralAgencies = this.$store.getters['lrgql/getAgencies'];
+    });
+  }
 };
 </script>
 

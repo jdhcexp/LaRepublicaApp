@@ -1,30 +1,32 @@
 {
-  "name": "LRApp",
+  "name": "lrapp",
   "main": "app/app.js",
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@nativescript-community/ui-material-bottom-navigation": "^7.0.24",
-    "@nativescript-community/ui-material-bottomnavigationbar": "^7.0.24",
-    "@nativescript-community/ui-material-tabs": "^7.0.24",
-    "@nativescript/core": "~8.2.0",
+    "@nativescript-community/ui-material-bottom-navigation": "^7.0.28",
+    "@nativescript-community/ui-material-bottomnavigationbar": "^7.0.29",
+    "@nativescript-community/ui-material-tabs": "^7.0.28",
+    "@nativescript-community/universal-links": "^3.0.0",
+    "@nativescript/core": "~8.3.0",
     "@nativescript/theme": "~3.0.2",
     "apollo-boost": "^0.4.9",
     "graphql": "^15.8.0",
+    "nativescript-menu": "^1.1.7",
     "nativescript-oauth2": "^3.0.10",
     "nativescript-pdf-view": "^3.0.0-1",
-    "nativescript-ui-chart": "^9.0.2",
-    "nativescript-ui-sidedrawer": "~10.0.2",
+    "nativescript-ui-chart": "^14.2.1",
+    "nativescript-ui-sidedrawer": "^14.2.1",
     "nativescript-vue": "~2.9.0",
     "nativescript-vue-lifecycle-hooks": "^1.0.0",
-    "rxjs": "~7.5.0",
+    "rxjs": "^6.6.7",
     "vue-apollo": "^3.1.0",
+    "vue-rx": "^6.2.0",
     "vuex": "^3.6.2"
   },
   "devDependencies": {
-    "@nativescript/android": "8.2.4",
-    "@nativescript/ios": "8.2.3",
-    "@nativescript/webpack": "~5.0.6",
+    "@nativescript/ios": "8.3.3",
+    "@nativescript/webpack": "~5.0.9",
     "nativescript-vue-template-compiler": "~2.9.0"
   }
 }

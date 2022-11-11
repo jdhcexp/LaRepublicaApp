@@ -7,11 +7,11 @@
 				</StackLayout>
 			</ActionItem>
 			<StackLayout orientation="horizontal" class="head-central">
-				<Image src="~/assets/logo.png" width="38" verticalAlignment="center" />
+				<Image src="~/assets/logo.png" width="35" verticalAlignment="center" />
 			</StackLayout>
 			<ActionItem ios.position="right">
 				<StackLayout orientation="horizontal">
-					<Image src="~/assets/icons/en-vivo.png" width="33" verticalAlignment="center" />
+					<!-- <Image src="~/assets/icons/en-vivo.png" width="33" verticalAlignment="center" /> -->
 					<Image src="~/assets/icons/lupa.png" width="15" class="header-space" verticalAlignment="center"
 						@tap="goToSearch" />
 					<Image src="~/assets/icons/usuario.png" width="15" class="header-space"
@@ -54,11 +54,10 @@ export default {
 			utils.showDrawer();
 		},
 		goToSearch() {
-			console.log("gotoserach***********")
 			debugger;
 			// this.$refs.drawerMainContent.$navigateTo( Search )
 			this.$navigateTo(Search, {
-						
+
 				// transition: {
 				// 	name: "slideLeft",
 				// 	duration: 100,
@@ -79,7 +78,9 @@ export default {
 
 // Custom styles
 .hamburguer {
-	padding: 0;
+	padding-right: 10%;
+	width: 33%;
+	color: #000;
 }
 
 .head-left {
@@ -94,4 +95,5 @@ export default {
 	width: 40%;
 	text-align: right;
 }
+
 </style>

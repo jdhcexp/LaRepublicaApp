@@ -1,16 +1,16 @@
 <template>
-    <WrapLayout backgroundColor="#fff" v-if="headline">
+    <WrapLayout backgroundColor="#fff" v-if="headline" @tap="onNavigationItemTap(headline.id)">
         <!-- <Label :text="opening.header" class="category" /> -->
          <!-- <button @tap="showInfo">qwertyui</button> -->
-        <AbsoluteLayout backgroundColor="#fff">          
+        <AbsoluteLayout backgroundColor="#fff">
             <Image :src="headline.youtubeThumb" top="0" class="img-ppal" />
             <StackLayout class="box-play">
                 <Image src="~/assets/icons/play.png" width="50" />
             </StackLayout>
         </AbsoluteLayout>
         <StackLayout orientation="horizontal">
-            <Label class="box-hash" text="COMMER LR"/>
-			<Label class="box-category" text="HACIENDA"/>
+            <Label class="box-hash" v-if="headline.videoShow && headline.videoShow.name" :text="headline.videoShow.name.toUpperCase()"/>
+			<Label class="box-category" :text="headline.header.toUpperCase()" />
             <!--<StackLayout class="save">
                 <Image src="~/assets/icons/guardar-relleno.png" width="11" verticalAlignment="center" />
             </StackLayout>-->
@@ -33,6 +33,7 @@
     </WrapLayout> -->
 </template>
 <script>
+import VideoPost from '../posts/VideoPost.vue';
 export default {
     props: {
         headline: {
@@ -43,8 +44,23 @@ export default {
         return {};
     },
     methods: {
-        showInfo() {            
+        showInfo() {
             console.log(this.headline);
+        },
+        onNavigationItemTap(id) {
+            debugger;
+            this.$navigateTo(VideoPost, {
+                transition: {
+                    name: "slideLeft",
+                    duration: 100,
+                    curve: "easeIn"
+                },
+                props:{
+                    postId: id
+                }
+            }
+            ).catch(error => console.log(error));
+            // utils.closeDrawer();
         }
     },
 };

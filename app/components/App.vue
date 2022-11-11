@@ -14,8 +14,18 @@
   import Main from './layout/Main'
   import Search from './pages/Search';
   import { SlideInOnTopTransition } from 'nativescript-ui-sidedrawer';
+  import { getUniversalLink, registerUniversalLinkCallback } from '@nativescript-community/universal-links';
 
   export default {
+    async mounted() {
+      console.log("++++++++++++++++++++++++++++++++++UNIVERSALMOUNTED+++++++")
+        registerUniversalLinkCallback((link) => {
+            console.log(link);
+        });
+        // const ul = getUniversalLink();
+        // alert(JSON.stringify(ul))
+        // console.log(ul);
+    },
     data() {
       return {
         transition: new SlideInOnTopTransition()
@@ -27,9 +37,9 @@
       Main,
       Search
     },
-    beforeMount() {      
+    beforeMount() {
       this.$store.dispatch('lrgql/loadIndicatorsBar')
-      
+
     },
   }
 </script>

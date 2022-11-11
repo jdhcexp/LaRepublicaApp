@@ -1,10 +1,10 @@
 <template>
 <ScrollView>
-  <ListView for="country in countries" @itemTap="onItemTap">
+  <ListView for="country in countries" @itemTap="onItemTap" backgroundColor="#fff">
                     <v-template>
                         <FlexboxLayout flexDirection="row">
 
-                            <Label :text="country.name" class="t-12"
+                            <Label :text="country.name" class="t-12 configItem"
                                 style="width: 80%" />
                             <Switch checked="true" />
                         </FlexboxLayout>
@@ -97,6 +97,8 @@
     };
 </script>
 
-<style>
-
+<style scoped>
+.configItem{
+    color: black;
+}
 </style>
